@@ -7,3 +7,6 @@
 2020-09-28T19:11:27.1835192+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
 2020-09-28T19:11:27.1913754+02:00  [INF] Hosting environment: "Development" (c3307c92)
 2020-09-28T19:11:27.1927913+02:00  [INF] Content root path: "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\MyWebsite" (b5d60022)
+2020-09-28T19:41:18.6582921+02:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2020-09-28T19:41:18.6668118+02:00  [INF] Hosting environment: "Development" (c3307c92)
+2020-09-28T19:41:18.6681945+02:00  [INF] Content root path: "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\MyWebsite" (b5d60022)
