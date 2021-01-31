@@ -1,0 +1,17 @@
+{
+  "theme_color": "#fff",
+  "lang": "en-US",
+  "categories": [ "personal website", "portfolio" ],
+  "name": "Tadeáš Burda\n Personal website",
+  "short_name": "Web-TadeášBurda",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Tadeáš Burda's personal website. My portfolio, blog, website, etc.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "16x16 32x32 180x180 192x192 512x512"
+    }
+  ]
+}
