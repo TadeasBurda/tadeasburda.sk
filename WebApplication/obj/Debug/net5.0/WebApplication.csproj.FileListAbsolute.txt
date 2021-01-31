@@ -17,8 +17,6 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.RazorTargetAssemblyInfo.cache
@@ -82,3 +80,12 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.Views.pdb
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csproj.CopyComplete
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.genruntimeconfig.cache
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Host.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.DotNet.InternalAbstractions.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.Globalization.CultureInfoCache.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\SimpleMvcSitemap.dll

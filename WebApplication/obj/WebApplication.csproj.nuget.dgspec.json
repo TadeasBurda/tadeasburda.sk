@@ -59,6 +59,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "SimpleMvcSitemap": {
+              "target": "Package",
+              "version": "[4.0.1, )"
             }
           },
           "imports": [
