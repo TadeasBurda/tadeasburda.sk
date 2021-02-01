@@ -84,8 +84,15 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Host.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.DotNet.InternalAbstractions.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.Globalization.CultureInfoCache.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Extensions.PlatformAbstractions.dll
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\SimpleMvcSitemap.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Serilog.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.Azure.Services.AppAuthentication.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Serilog.Sinks.MSSqlServer.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\Serilog.Sinks.PeriodicBatching.dll
