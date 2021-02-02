@@ -14,37 +14,97 @@
                 <img src="~/img/profil-photo/profile-photo-original.webp" class="img-fluid" alt="Tadeáš Burda" />
             </picture>
         </div>
-        @* nav *@
+        @* user nav *@
         <div class="col-sm">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion accordion-flush" id="accordionFlushUserNav1">
+                @* I'm here for the first time... *@
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingOne">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            Accordion Item #1
+                    <h2 class="accordion-header" id="flush-heading1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+                            I'm here for the first time...
                         </button>
                     </h2>
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                    <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushUserNav1">
+                        <div class="accordion-body">
+                            Hi, my name is Tadeáš Burda and this is my website.
+                            If you are not looking for a programmer or I did not invite you here, this page is probably not necessary.
+                            If you want, you can look at my portfolio, blog, etc. but this site is something like my "virtual CV", so it's not very interesting to the public.
+                            Thank you for your time ... Tadeáš
+                        </div>
                     </div>
                 </div>
+                @* I'm looking for a programmer... *@
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Accordion Item #2
+                    <h2 class="accordion-header" id="flush-heading2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+                            I'm looking for a programmer...
                         </button>
                     </h2>
-                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                    <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushUserNav1">
+                        <div class="accordion-body">
+                            <div class="accordion accordion-flush" id="accordionFlushUserNav1-1">
+                                @* IT is not my field... *@
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-heading2-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2-1" aria-expanded="false" aria-controls="flush-collapse2-1">
+                                            IT is not my field...
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse2-1" class="accordion-collapse collapse" aria-labelledby="flush-heading2-1" data-bs-parent="#accordionFlushUserNav1-1">
+                                        <div class="accordion-body">
+                                            <p>Short summary of what I can do (more in my portfolio)</p>
+                                            <ul>
+                                                <li>
+                                                    <label>Program for Windows</label>
+                                                    <ul>
+                                                        <li><strong>console applications</strong> (<i>simple programs, scripts, etc.</i>)</li>
+                                                        <li><strong>window applications</strong> (<i>classic applications with default graphical interface</i>)</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <label>All websites</label>
+                                                    <ul>
+                                                        <li><strong>static web pages</strong> (<i>online business cards, CVs, presentation websites, etc.</i>) - The web page is simple, without the administrative part, ie. "fixed", without the intervention of the programmer does not change.</li>
+                                                        <li><strong>dynamic pages</strong> (<i>e-shops, pages of organizations, blogs, etc.</i>) - The web page contains an administrative interface through which you can manage the page, ie. change its contents by the need of a programmer.</li>
+                                                        <li><strong>single page</strong> (<i>page without loading, simulates the application</i>) - Another programmer is needed (programs the presentation part). I program the back-end (application background). I am open to cooperation...</li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <label>Mobile apps</label>
+                                                    <ul>
+                                                        <li>Currently, I do not focus on programming for mobile platforms. Maybe in time ...</li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* IT is my field... *@
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="flush-heading2-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2-2" aria-expanded="false" aria-controls="flush-collapse2-2">
+                                            IT is my field...
+                                        </button>
+                                    </h2>
+                                    <div id="flush-collapse2-2" class="accordion-collapse collapse" aria-labelledby="flush-heading2-2" data-bs-parent="#accordionFlushUserNav1-1">
+                                        <div class="accordion-body">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                                     
+                        </div>
                     </div>
                 </div>
+                @* I want to contact you... *@
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                            Accordion Item #3
+                    <h2 class="accordion-header" id="flush-heading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                            I want to contact you...
                         </button>
                     </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                    <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushUserNav1">
+                        <div class="accordion-body">
+                        </div>
                     </div>
                 </div>
             </div>
