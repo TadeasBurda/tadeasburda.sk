@@ -30,8 +30,4 @@
     <PackageReference Include="SimpleMvcSitemap" Version="4.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\img\profil-photo\" />
-  </ItemGroup>
-
 </Project>
