@@ -2,16 +2,32 @@
   "theme_color": "#fff",
   "lang": "en-US",
   "categories": [ "personal website", "portfolio" ],
-  "name": "Tadeáš Burda\n Personal website",
+  "name": "Tadeáš Burda\n Osobný web",
   "short_name": "Web-TadeášBurda",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "Tadeáš Burda's personal website. My portfolio, blog, website, etc.",
+  "description": "Tadeáš Burda osobná webstránka. Moje portfólio, blog, Petriho miska, atï.",
   "icons": [
     {
-      "src": "/img/favicons/favicon.ico",
-      "sizes": "16x16 32x32 180x180 192x192 512x512"
+      "src": "img/favicons/favicon-32w.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicons/favicon-48w.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicons/favicon-96w.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "img/favicons/favicon-144w.png",
+      "sizes": "144x144",
+      "type": "image/png"
     }
   ]
 }
