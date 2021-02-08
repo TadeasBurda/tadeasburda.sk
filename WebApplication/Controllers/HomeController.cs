@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using WebApplication.Models;
 using WebApplication.Services;
+using WebApplication.Extensions;
+using WebApplication.Classes;
 
 namespace WebApplication.Controllers
 {
@@ -30,6 +32,7 @@ namespace WebApplication.Controllers
         #region Views()
         public IActionResult Index()
         {
+            this.AddFlashMessage("test", FlashMessageType.Danger);
             return View();
         }
 

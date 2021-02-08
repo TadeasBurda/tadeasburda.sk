@@ -26,8 +26,22 @@ using WebApplication.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
+using WebApplication.Extensions;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
+using WebApplication.Classes;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"420dd12206e74191e0c7a5aaaffd459bb5d26cb4", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fa0ef8da47a84ffb33e8bc853509aa4fa5703a26", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c13de5ca4d3aaa1fbe8bc6b3812f0a37d5cd4047", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998
