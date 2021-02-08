@@ -6,8 +6,9 @@
     ViewData["og:image"] = "https://tadeasburda.sk/share-img.webp";
 }
 <!DOCTYPE html>
-<html style="font-size:16px;font-family:'Times New Roman', Times, serif" lang="sk">
+<html style="font-size:14px;font-family:'Times New Roman', Times, serif" lang="sk">
 <head>
+    <meta charset="utf-8" />
     @* Global site tag (gtag.js) - Google Analytics *@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150342827-2"></script>
     <script>
@@ -17,7 +18,6 @@
         gtag('config', 'UA-150342827-2');
     </script>
     @* main *@
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["title"]</title>
     <meta name="description" content="@ViewData["description"]" />
@@ -39,10 +39,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     @* my css *@
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" type="text/css" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
