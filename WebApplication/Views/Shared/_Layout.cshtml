@@ -56,7 +56,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Domov</a>
+                        <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Domov</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Portfólio</a>
@@ -69,7 +69,7 @@
                             Nástroje
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarTools">
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Konvertor obrázkov</a></li>
+                            <li><a class="dropdown-item" asp-controller="Tools" asp-action="ImagesConvertor">Kovertor obrázkov</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
