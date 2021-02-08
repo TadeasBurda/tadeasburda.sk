@@ -37,6 +37,7 @@ namespace WebApplication
 
             #region DI for Services
             services.AddScoped<IFileServices, FileServices>();
+            services.AddScoped<IImageServices, ImageServices>();
             #endregion
         }
 

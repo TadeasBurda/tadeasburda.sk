@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
+        "projectPath": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
         "packagesPath": "C:\\Users\\tadea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\obj\\",
+        "outputPath": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tadea\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "ImageProcessor": {
+              "target": "Package",
+              "version": "[2.9.1, )"
+            },
+            "ImageProcessor.Plugins.WebP": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.2, )"
@@ -83,6 +91,10 @@
             "SimpleMvcSitemap": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [

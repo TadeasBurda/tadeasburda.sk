@@ -2,7 +2,6 @@
     ViewData["title"] = "Online konvertor obrázkov";
     ViewData["description"] = "Stránka pre konvertovanie formátu, zmenu pomeru strán a orezanie obrázku.";
 }
-@model ImagesConvertorViewModel
 <div class="container">
     <form class="row" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
         @* upload files *@
@@ -23,3 +22,11 @@
         </div>
     </form>
 </div>
+@section Scripts{
+    <environment include="Development">
+        <script src="~/js/ToolsController/ImagesConvertor/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/ToolsController/ImagesConvertor/site.min.js" asp-append-version="true"></script>
+    </environment>
+}

@@ -10,5 +10,11 @@
     "inputFiles": [
       "wwwroot/js/site.js"
     ]
+  },
+  {
+    "outputFileName": "wwwroot/js/ToolsController/ImagesConvertor/site.min.js",
+    "inputFiles": [
+      "wwwroot/js/ToolsController/ImagesConvertor/site.js"
+    ]
   }
 ]
