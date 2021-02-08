@@ -32,7 +32,6 @@ namespace WebApplication.Controllers
         #region Views()
         public IActionResult Index()
         {
-            this.AddFlashMessage("test", FlashMessageType.Danger);
             return View();
         }
 
@@ -51,6 +50,27 @@ namespace WebApplication.Controllers
         #region api
         [Route("/sitemap.xml"), HttpGet]
         public ActionResult GetSitemap() => new SitemapProvider().CreateSitemap(new SitemapModel(GetNodes()));
+
+        [Route("/api/Error")]
+        public IActionResult Error(int? statusCode = null)
+        {
+            if (statusCode.HasValue)
+            {
+                logger.LogError($"StatusCode: {statusCode.Value}");
+
+                switch (statusCode.Value)
+                {
+                    case 404:
+                        this.AddFlashMessage("Odkaz na ktorý ste klikli nikam nevedie, ale viedol na túto stránku... Možné príčiny: odkaz je starý, chybný, zablokovaný, atď. ", FlashMessageType.Info);
+                        break;
+                    default:
+                        this.AddFlashMessage("Niečo sa pokazilo... Informáciu o chybe som zaregistroval a budem ju ďalej spracovať. Ďakujem za pochopenie ", FlashMessageType.Danger);
+                        break;
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
         #endregion
 
         #region Helpers
