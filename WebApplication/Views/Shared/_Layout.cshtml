@@ -22,8 +22,13 @@
     <title>@ViewData["title"]</title>
     <meta name="description" content="@ViewData["description"]" />
     <link rel="canonical" href="@ViewData["url"]" />
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-    <link rel="manifest" href="~/manifest.webmanifest" />
+    @* icons *@
+    <link rel="shortcut icon" href="~/img/favicons/favicon.ico" type="image/x-icon" asp-append-version="true" />
+    <link rel="icon" href="~/img/favicons/favicon-32w.png" sizes="32x32" asp-append-version="true" />
+    <link rel="icon" href="~/img/favicons/favicon-48w.png" sizes="48x48" asp-append-version="true" />
+    <link rel="icon" href="~/img/favicons/favicon-96w.png" sizes="96x96" asp-append-version="true" />
+    <link rel="icon" href="~/img/favicons/favicon-144w.png" sizes="144x144" asp-append-version="true" />
+    <link rel="manifest" href="~/manifest.webmanifest" asp-append-version="true" />
     @* facebook *@
     <meta property="og:url" content="@ViewData["url"]" />
     <meta property="og:type" content="@ViewData["og:type"]" />

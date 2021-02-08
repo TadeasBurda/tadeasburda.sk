@@ -10,7 +10,7 @@
   "description": "Tadeáš Burda's personal website. My portfolio, blog, website, etc.",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "/img/favicons/favicon.ico",
       "sizes": "16x16 32x32 180x180 192x192 512x512"
     }
   ]
