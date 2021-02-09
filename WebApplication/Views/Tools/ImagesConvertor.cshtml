@@ -2,25 +2,73 @@
     ViewData["title"] = "Online konvertor obrázkov";
     ViewData["description"] = "Stránka pre konvertovanie formátu, zmenu pomeru strán a orezanie obrázku.";
 }
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb mx-1">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Domov</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Nástroje</li>
+        <li class="breadcrumb-item active" aria-current="page">Konvertor obrázkov</li>
+    </ol>
+</nav>
 <div class="container">
-    <form class="row" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
-        @* upload files *@
-        <div class="col-md mb-3">
-            <label class="form-label" asp-for="Image"></label>
-            <input class="form-control" accept=".jpg,.jpge,.png" asp-for="Image" />
-            <span class="form-text text-danger" asp-validation-for="Image"></span>
-        </div>
-        @* input for sizes *@
-        <div class="col-md mb-3">
-            <label class="form-label" asp-for="Sizes">Šírka/y</label>
-            <input class="form-control" placeholder="Príklad: 500,350,200" asp-for="Sizes" />
-            <span class="form-text text-danger" asp-validation-for="Sizes"></span>
-        </div>
-        @* submint *@
-        <div class="col-12">
-            <button type="submit" class="btn btn-outline-dark">Konvertovať</button>
-        </div>
-    </form>
+    <h1># Konvertor obrázkov</h1>
+    <hr />
+    @* tool *@
+    <section class="bg-light p-2">
+        <form enctype="multipart/form-data">
+            @* section for upload file *@
+            <section class="mb-5">
+                <h3>1. Vyber obrázok</h3>
+                <p>Nahraj obrázok ktorý chceš konvertovať do WebP. Obrázok by mal byť v čo najväčšej kvalite a <strong>podporované formáty</strong> zatiaľ sú <strong>PNG, JPG</strong>.</p>
+                @* inout for upload file *@
+                <input class="form-control" type="file" accept=".jpg,.jpge,.png" name="uploadFile" />
+            </section>
+            @* secion for width inputs *@
+            <section class="table-responsive mb-5">
+                <h3>2. Zadaj požadované rozmery</h3>
+                <p>Do tabuľky <strong>zadaj rozmer</strong> pre šírku obrázku a <strong>stlač Enter</strong>. Stiahnuť môžeš každý obrázok zvlášť alebo môžeš stiahnuť všetky hromadne. </p>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Šírka</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <input type="number" />
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            @* section for bulk download*@
+            <section>
+                <h3>3. Stiahnuť hromadne</h3>
+                <div class="text-center">
+                    <button class="btn btn-success">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
+                        </svg>
+                    </button>
+                </div>
+            </section>
+        </form>
+    </section>
+    <hr />
+    @* description *@
+    <section class="bg-light p-2">
+
+    </section>
 </div>
 @section Scripts{
     <environment include="Development">
