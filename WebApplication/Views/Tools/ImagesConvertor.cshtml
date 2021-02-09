@@ -25,20 +25,27 @@
             @* secion for width inputs *@
             <section class="table-responsive mb-5">
                 <h3>2. Zadaj požadované rozmery</h3>
-                <p>Do tabuľky <strong>zadaj rozmer</strong> pre šírku obrázku a <strong>stlač Enter</strong>. Stiahnuť môžeš každý obrázok zvlášť alebo môžeš stiahnuť všetky hromadne. </p>
+                <p>Do tabuľky <strong>zadaj rozmer</strong> pre šírku obrázku. Stiahnuť môžeš každý obrázok zvlášť alebo môžeš stiahnuť všetky hromadne. <strong>Nový riadok</strong> pridáš tlačítkom v rohu hlavičky tabuľky. </p>
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Šírka</th>
                             <th scope="col"></th>
+                            <th scope="col">
+                                <button type="button" class="btn btn-outline-light btn-sm" onclick="newTableRow()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
+                                    </svg>
+                                </button>
+                            </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tableBody">
                         <tr>
                             <th scope="row">1</th>
                             <td>
-                                <input type="number" />
+                                <input class="form-control" type="number" />
                             </td>
                             <td>
                                 <button class="btn btn-success" type="button">
@@ -47,6 +54,7 @@
                                     </svg>
                                 </button>
                             </td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
