@@ -1,4 +1,15 @@
-﻿function newTableRow() {
-    var th = $("tbody tr:last-of-type th:last-of-type")
-    alert($(th).text());
+﻿function addRow(btn) {
+    var tr = $(btn).parent().parent(); // Return the row that contains the button.
+
+    // Clone the row and clear the input.
+    var trClone = tr.clone();
+    trClone.find("td > input").val("");
+
+    tr.after(trClone); // Insert a clone after the original line.
+
+    // Corrects the numbering of rows in the table.
+    var rows = $("tbody tr > th");
+    for (var i = 0; i < rows.length; i++) {
+        $(rows[i]).text(i + 1);
+    }
 }
