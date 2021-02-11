@@ -17,6 +17,13 @@ namespace WebApplication.Services
         /// <param name="width"></param>
         /// <returns></returns>
         MemoryStream Convert(IFormFile formFile, int width);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileInfo"></param>
+        /// <param name="newWidth">New width - height is calculated.</param>
+        /// <param name="directory">The folder in which to save the new file.</param>
+        void ConverFileToWebP(FileInfo fileInfo, int newWidth, DirectoryInfo directory);
     }
 
     public class ImageServices: IImageServices
@@ -47,6 +54,15 @@ namespace WebApplication.Services
                         .Save(outputStream);
 
             return outputStream;
+        }
+
+        public void ConverFileToWebP(FileInfo fileInfo, int newWidth, DirectoryInfo directory)
+        {
+            using ImageFactory imageFactory = new ImageFactory(preserveExifData: true);
+            imageFactory.Load(fileInfo.FullName)
+                        .Resize(CalculateHeight(Image.FromFile(fileInfo.FullName), newWidth))
+                        .Format(new WebPFormat { Quality = 90 })
+                        .Save(directory.FullName);
         }
         #endregion
     }

@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace WebApplication.Services
 {
     public interface IFileServices
     {
         List<string> ReturnFilePaths(string directoryPath);
+        Task SaveFileToDirectoryAsync(IFormFile file, string directoryPath);
     }
 
     public class FileServices: IFileServices
@@ -30,6 +33,16 @@ namespace WebApplication.Services
             }
 
             return urls;
+        }
+
+        public async Task SaveFileToDirectoryAsync(IFormFile file, string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+                Directory.CreateDirectory(directoryPath);
+
+            string path = Path.Combine(directoryPath, file.FileName);
+            using Stream fileStream = new FileStream(path, FileMode.Create);
+            await file.CopyToAsync(fileStream);
         }
     }
 }

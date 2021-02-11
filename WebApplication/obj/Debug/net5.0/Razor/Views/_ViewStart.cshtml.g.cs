@@ -40,8 +40,15 @@ using WebApplication.Classes;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
+using WebApplication.Models.ViewModels.ToolsController;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7091c65830b0329e613be026ede8a57552863778", @"/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c13de5ca4d3aaa1fbe8bc6b3812f0a37d5cd4047", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70fde5361f1bf1a4deab84356008a5dd43b9c93f", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

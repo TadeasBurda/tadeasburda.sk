@@ -13,3 +13,12 @@
         $(rows[i]).text(i + 1);
     }
 }
+
+function covertAndDownload(fileName) {
+    if (fileName == null) {
+        alert("Musíš nahrať obrázok.");
+    }
+    else {
+        $.get("/api/ConvertImgToWebP", { fileName: fileName, widths: [0, 0] });
+    }     
+}
