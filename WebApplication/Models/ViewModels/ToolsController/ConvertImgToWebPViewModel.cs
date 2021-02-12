@@ -11,6 +11,7 @@ namespace WebApplication.Models.ViewModels.ToolsController
 
         [Required]
         [JsonPropertyName("widths")]
+        [MinLength(1)]
         public int[] Widths { get; set; }
     }
 }

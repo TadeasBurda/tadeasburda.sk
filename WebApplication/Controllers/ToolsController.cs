@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.IO.Compression;
@@ -10,15 +11,20 @@ namespace WebApplication.Controllers
 {
     public class ToolsController : Controller
     {
+        #region private
+        private readonly ILogger<ToolsController> logger;
+        #endregion
+
         #region Services
         private readonly IImageServices imageServices;
         private readonly IFileServices fileServices;
         #endregion
 
-        public ToolsController(IImageServices imageServices, IFileServices fileServices)
+        public ToolsController(IImageServices imageServices, IFileServices fileServices, ILogger<ToolsController> logger)
         {
             this.imageServices = imageServices;
             this.fileServices = fileServices;
+            this.logger = logger;
         }
 
         #region Views()
@@ -28,7 +34,7 @@ namespace WebApplication.Controllers
         public IActionResult ImagesConvertor(ImagesConvertorViewModel model)
         {
             if (ModelState.IsValid)
-                fileServices.SaveFileToDirectoryAsync(model.UploadFile, "wwwroot/img/img-convertor");
+                fileServices.SaveFileToDirectoryAsync(model.UploadFile, "wwwroot/temporary-files");
             else
                 model.UploadFile = null; // The file is deleted to display the default image in View.
 
@@ -37,7 +43,7 @@ namespace WebApplication.Controllers
         #endregion
 
         #region api
-        [HttpGet, Route("/api/ConvertImgToWebP")]
+        [HttpPost, Route("/api/ConvertImgToWebP")]
         public IActionResult ConvertImgToWebP(ConvertImgToWebPViewModel model)
         {
             if (!ModelState.IsValid)
@@ -45,17 +51,19 @@ namespace WebApplication.Controllers
 
             try
             {
-                DirectoryInfo directoryInfo = new DirectoryInfo("wwwroot/img/img-convertor/");
-              
+                Guid guid = Guid.NewGuid(); // Create a unique code for a folder of images and ZIP file.
+
+                // Convert and resize the image.
                 foreach (int width in model.Widths)
-                    imageServices.ConverFileToWebP(new FileInfo($"wwwroot/img/img-convertor/{model.FileName}"), width, directoryInfo);
+                    imageServices.ConverFileToWebP(new FileInfo($"wwwroot/temporary-files/{model.FileName}"), width, $"wwwroot/temporary-files/{guid}");
 
-                ZipFile.CreateFromDirectory("wwwroot/img/img-convertor/", "wwwroot/temporary-files/new.zip");
+                ZipFile.CreateFromDirectory($"wwwroot/temporary-files/{guid}", $"wwwroot/temporary-files/{guid}.zip"); // Create a ZIP from the folder in which the edited images.
 
-                return File("~/new.zip", "application/zip", "new.zip");
+                return Content(Url.Content($"~/temporary-files/{guid}.zip")); // Send the path to the ZIP file.
             }
-            catch
+            catch(Exception e)
             {
+                logger.LogError(e, e.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }

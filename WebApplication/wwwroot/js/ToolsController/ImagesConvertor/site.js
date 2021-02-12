@@ -19,6 +19,9 @@ function covertAndDownload(fileName) {
         alert("Musíš nahrať obrázok.");
     }
     else {
-        $.get("/api/ConvertImgToWebP", { fileName: fileName, widths: [0, 0] });
+        $.post("/api/ConvertImgToWebP", { fileName: fileName, widths: [200, 100] })
+            .done(function (result) {
+                window.open(window.location.origin + result); // Open link in new window and download file.
+            });
     }     
 }

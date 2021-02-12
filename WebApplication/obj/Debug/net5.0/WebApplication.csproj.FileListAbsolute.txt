@@ -171,3 +171,4 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\ImageProcessor.dll
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\ImageProcessor.Plugins.WebP.dll
+C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\libman.json
