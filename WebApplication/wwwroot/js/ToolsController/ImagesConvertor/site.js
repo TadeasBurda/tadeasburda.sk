@@ -19,9 +19,17 @@ function covertAndDownload(fileName) {
         alert("Musíš nahrať obrázok.");
     }
     else {
-        $.post("/api/ConvertImgToWebP", { fileName: fileName, widths: [200, 100] })
+        // Create a array from the values in the form.
+        var inputValues = $("tbody").find("input").map(function () {
+            return parseInt($(this).val());
+        }).toArray();
+
+        $.post("/api/ConvertImgToWebP", { fileName: fileName, widths: inputValues })
             .done(function (result) {
                 window.open(window.location.origin + result); // Open link in new window and download file.
+            })
+            .fail(function (xhr, status, error) {
+                alert("Niečo sa pokazilo. Skúste to ešte raz, alebo kontaktujte admina stránky. ");
             });
     }     
 }
