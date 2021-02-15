@@ -34,9 +34,12 @@ namespace WebApplication.Controllers
         public IActionResult ImagesConvertor(ImagesConvertorViewModel model)
         {
             if (ModelState.IsValid)
+            {
                 fileServices.SaveFileToDirectoryAsync(model.UploadFile, "wwwroot/temporary-files");
-            else
-                model.UploadFile = null; // The file is deleted to display the default image in View.
+
+                model.FileName = model.UploadFile.FileName;
+                model.UploadFile = null;
+            }
 
             return View(model);
         }

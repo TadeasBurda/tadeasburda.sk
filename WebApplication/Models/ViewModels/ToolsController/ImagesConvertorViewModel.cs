@@ -9,5 +9,7 @@ namespace WebApplication.Models.ViewModels.ToolsController
         [Required(ErrorMessage = "Pole je povinné.")]
         [AllowedExtensions(new string[] { ".jpeg", ".jpg", ".png", ".webp" })]
         public IFormFile UploadFile { get; set; }
+
+        public string FileName { get; set; }
     }
 }

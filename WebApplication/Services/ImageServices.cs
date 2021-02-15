@@ -53,7 +53,7 @@ namespace WebApplication.Services
             imageFactory.Load(fileInfo.FullName)
                         .Resize(CalculateHeight(Image.FromFile(fileInfo.FullName), newWidth))
                         .Format(new WebPFormat { Quality = 90 })
-                        .Save(Path.Combine(directoryPath, fileInfo.Name.Replace(fileInfo.Extension, $"{newWidth}w.webp")));
+                        .Save(Path.Combine(directoryPath, fileInfo.Name.Replace(fileInfo.Extension, $"-{newWidth}w.webp")));
         }
         #endregion
     }

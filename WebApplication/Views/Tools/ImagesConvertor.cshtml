@@ -12,15 +12,30 @@
 </nav>
 <div class="container">
     <h1># Konvertor obrázkov</h1>
+    @* github note *@
+    <div class="alert alert-info" role="alert">
+        Kód je možné si preštudovať na mojom GitHube<a href="https://github.com/TadeasBurda/tadeasburda.sk/blob/master/WebApplication/Controllers/ToolsController.cs" target="_blank">(kód kontroleru)</a>.
+    </div>
+    @* description & instructions *@
+    <article>
+        <h2>1. Popis</h2>
+        <p>Táto stránka súži pre konvertovanie obrázkovú z formátu JPG, alebo PNG do webového formátu WebP. Pri konvertovaní je možné zadať novú šírku/y obrázku.  </p>
+        <p>Tento nástroj primárne súži pre vývoj webov, kde rôzne veľkosti obrázkov a nové úsporné formáty zaisťujú menší dátový prenos a rýchlejšie načítanie stránky. Keďže sa vývoju webou venujem vytvoril som si túto utilitku aby mi uľahčila prácu. Appka je webová pretože vyvíjam na viac strojoch a je to jednoduchšie k aktualizácii. </p>
+        <br />
+        <h2>2. Návod</h2>
+        <p>Vyber obrázok z tvojho disku a nahraj ho na web. Ak sa obrázok nahral v poriadku zobrazí sa pod vstupom. Do tabuľky pod ním zadaj šírku/y ktoré požaduješ(výška sa dopočíta automaticky tak aby sa zachoval pomer strán obrázku). Až vyplníš tabuľku, tlačidlom pod ňou spustíš konvertovanie a následné sťahovanie ZIP súboru. </p>
+    </article>
     <hr />
     @* tool *@
-    <section class="bg-light p-2">
+    <section>
         @* section for upload file *@
         <section class="mb-5">
-            <h3>1. Vyber obrázok</h3>
+            <h2>
+                <label asp-for="UploadFile">3.1 Vyber obrázok</label>
+            </h2>
             <p>Nahraj obrázok ktorý chceš konvertovať do WebP. Obrázok by mal byť v čo najväčšej kvalite a <strong>podporované formáty</strong> zatiaľ sú <strong>PNG, JPG</strong>.</p>
             <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                     @* inout for upload file *@
                     <div class="mb-3">
                         <div class="input-group">
@@ -29,22 +44,22 @@
                         </div>
                         <span class="text-danger form-text" asp-validation-for="UploadFile"></span>
                     </div>
-                    @if (Model.UploadFile == null)
+                    @if (Model.FileName == null)
                     {
                         @* upload image view *@
                         <picture>
-                            <source media="(max-width:575px)" srcset="" type="image/webp" />
-                            <source media="(max-width:767px)" srcset="" type="image/webp" />
-                            <source media="(max-width:991px)" srcset="" type="image/webp" />
-                            <source media="(max-width:1199px)" srcset="" type="image/webp" />
-                            <source media="(max-width:1399px)" srcset="" type="image/webp" />
-                            <img class="img-fluid" src="~/img/default-placeholder.png" alt="default placeholder" asp-append-version="true">
+                            <source media="(max-width:575px)" srcset="~/img/default-placeholder/default-placeholder-540w.webp" type="image/webp" />
+                            <source media="(max-width:767px)" srcset="~/img/default-placeholder/default-placeholder-417w.webp" type="image/webp" />
+                            <source media="(max-width:991px)" srcset="~/img/default-placeholder/default-placeholder-450w.webp" type="image/webp" />
+                            <source media="(max-width:1199px)" srcset="~/img/default-placeholder/default-placeholder-452w.webp" type="image/webp" />
+                            <source media="(max-width:1399px)" srcset="~/img/default-placeholder/default-placeholder-542w.webp" type="image/webp" />
+                            <img class="img-fluid" src="~/img/default-placeholder/default-placeholder.png" alt="default placeholder" asp-append-version="true">
                         </picture>
                     }
                     else
                     {
                         <div class="text-center">
-                            <img class="img-fluid" src="@($"~/temporary-files/{Model.UploadFile.FileName}")" alt="uploaded image" asp-append-version="true">
+                            <img class="img-fluid" src="@($"~/temporary-files/{Model.FileName}")" alt="uploaded image" asp-append-version="true">
                         </div>
                     }
                 </div>
@@ -52,49 +67,57 @@
         </section>
         @* secion for width inputs *@
         <section class="table-responsive mb-5">
-            <h3>2. Zadaj požadované rozmery</h3>
-            <p>Do tabuľky <strong>zadaj rozmer</strong> pre šírku obrázku. Stiahnuť môžeš každý obrázok zvlášť alebo môžeš stiahnuť všetky hromadne. <strong>Nový riadok</strong> pridáš tlačítkom v rohu hlavičky tabuľky. </p>
-            <table class="table table-bordered">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Šírka</th>
-                        <th scope="col" style="width:120px"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>
-                            <input class="form-control" type="number" min="1" style="max-width:100px" />
-                        </td>
-                        <td>
-                            <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
-                                </svg>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <h2>3.2 Zadaj požadovanú šírku/y obrázku</h2>
+            <p>
+                Do tabuľky <strong>zadaj</strong> rozmer pre <strong>šírku/y</strong> obrázku.
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Šírka</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>
+                                <input class="form-control" type="number" min="1" placeholder="Šírka obrázku väčšia ako 0 a nižšia ako pôvodná." />
+                            </td>
+                            <td>
+                                <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
+                                    </svg>
+                                    &nbsp;Pridať riadok
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
         </section>
         @* section for bulk download*@
         <section>
-            <h3>3. Stiahnuť hromadne</h3>
+            <h2>3.3 Stiahnuť</h2>
             <div class="text-center">
-                <button class="btn btn-success" @(Model.UploadFile == null ? "disabled" : string.Empty) type="button" onclick="covertAndDownload('@Model.UploadFile?.FileName')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                <button class="btn btn-success" @(string.IsNullOrEmpty(Model.FileName) ? "disabled" : string.Empty) type="button" onclick="covertAndDownload('@Model?.FileName')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
                         <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
                     </svg>
+                    &nbsp;Stiahnuť
                 </button>
             </div>
         </section>
     </section>
     <hr />
-    @* description *@
-    <section class="bg-light p-2">
-    </section>
+    @* principle *@
+    <article>
+        <h2>4.1 Front-end</h2>
+        <p>Cez formulár sa nahraje na server súbor obrázku a uloží sa do dočasnej zložky. Užívateľ je presmerovaný späť na stránku, kde mu je zobrazený uložený obrázok aby sa mu vizuálne potvrdilo úspešný nahravanie +  je aktivované tlačidlo pre sťahovanie. Užívateľ zadá do tabuľky zo vstupmi požadované hodnoty a stlačí tlačidlo sťahovania. To spustí funkciu ktorá extrahuje hodnoty z tabuľky a spolu z názvom súboru ich cez AJAX odošle na API servera. Späť sa vráti odkaz na súbor, takže ak je akcia úspešná, otvorí nové okno prehliadača z odkazom, čo vyvolá sťahovanie súboru. </p>
+        <br />
+        <h2>4.2 Back-end</h2>
+        <p>Obrázok je uložený na server aby nemusel nahrávať pri každej zmene šírky. Po zavolaní na API sa vygeneruje unikátny kľuč ktorým sa pomenuje zložka a ZIP súbor, aby sa zamedzilo náhodnému prepisovaniu súborov na servery. Následne je v cykle volaná metóda pre konvert a uloženie obrázku, pre každú šírku z poľa. Všetky upravené obrázky sú uložené do zložky a na tú je zavolaná metóda pre vytvorenie ZIP súboru, ktorý je následne uložený vedľa tejto zložky. Ak všetko prebehlo úspešne, zloží sa adresa k tomu súboru a tá je vrátená. Adresu si odchytí AJAX a spustí sťahovanie. </p>
+    </article>
 </div>
 @section Scripts{
     <environment include="Development">
