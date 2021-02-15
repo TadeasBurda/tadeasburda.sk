@@ -1,13 +1,13 @@
-{
+Ôªø{
   "theme_color": "#fff",
-  "lang": "en-US",
+  "lang": "sk",
   "categories": [ "personal website", "portfolio" ],
-  "name": "Tade·ö Burda\n Osobn˝ web",
-  "short_name": "Web-Tade·öBurda",
+  "name": "Tade√°≈° Burda\n Osobn√Ω web",
+  "short_name": "Web-Tade√°≈°Burda",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "Tade·ö Burda osobn· webstr·nka. Moje portfÛlio, blog, Petriho miska, atÔ.",
+  "description": "Tade√°≈° Burda osobn√° webstr√°nka. Moje portf√≥lio, blog, Petriho miska, atƒè.",
   "icons": [
     {
       "src": "img/favicons/favicon-32w.png",
