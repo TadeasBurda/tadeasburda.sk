@@ -175,3 +175,4 @@ C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\System.Drawing.Common.dll
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio.cshtml.g.cs

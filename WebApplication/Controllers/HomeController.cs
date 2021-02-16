@@ -31,10 +31,8 @@ namespace WebApplication.Controllers
         #endregion
 
         #region Views()
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+        public IActionResult Portfolio() => View();
 
         public IActionResult Privacy()
         {
@@ -89,17 +87,14 @@ namespace WebApplication.Controllers
             {
                 new SitemapNode(Url.Action("Index", "Home")),
                 new SitemapNode(Url.Action("Privacy", "Home")),
+                new SitemapNode(Url.Action("ImagesConvertor", "Tools"))
             };
 
             return list;
         }
         private List<SitemapImage> GetImagesNodes()
         {
-            List<SitemapImage> list = new List<SitemapImage>
-            {
-                new SitemapImage("/favicon.ico"),
-                new SitemapImage("/share-img.webp")
-            };
+            List<SitemapImage> list = new List<SitemapImage>();
 
             foreach (string url in fileServices.ReturnFilePaths("wwwroot/img"))
                 list.Add(new SitemapImage(url));
