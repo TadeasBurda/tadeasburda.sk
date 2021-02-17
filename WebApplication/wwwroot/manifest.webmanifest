@@ -1,9 +1,9 @@
 ﻿{
   "theme_color": "#fff",
   "lang": "sk",
-  "categories": [ "personal website", "portfolio" ],
+  "categories": [ "wesite" ],
   "name": "Tadeáš Burda\n Osobný web",
-  "short_name": "Web-TadeášBurda",
+  "short_name": "Tadeáš Burda",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
