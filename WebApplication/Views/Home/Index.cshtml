@@ -1,17 +1,17 @@
 ﻿@{
     ViewData["title"] = "Vitajte na mojej webovej stránke";
 }
-<div class="container mt-1">
+<div class="container">
     <div class="row">
         @* my profile-photo *@
-        <div class="col-sm mb-2 mb-0">
+        <div class="col-sm">
             ​<picture>
                 <source media="(max-width:575px)" srcset="~/img/profil-photo/profile-photo-551w.webp" type="image/webp" />
                 <source media="(max-width:767px)" srcset="~/img/profil-photo/profile-photo-246w.webp" type="image/webp" />
                 <source media="(max-width:991px)" srcset="~/img/profil-photo/profile-photo-336w.webp" type="image/webp" />
                 <source media="(max-width:1199px)" srcset="~/img/profil-photo/profile-photo-456w.webp" type="image/webp" />
                 <source media="(max-width:1399px)" srcset="~/img/profil-photo/profile-photo-546w.webp" type="image/webp" />
-                <img src="~/img/profil-photo/profile-photo-original.webp" class="img-fluid" alt="Tadeáš Burda" asp-append-version="true" />
+                <img src="~/img/profil-photo/profile-photo-original.webp" class="img-fluid rounded-1" alt="Tadeáš Burda" asp-append-version="true" />
             </picture>
         </div>
         @* user nav *@
@@ -111,13 +111,13 @@
                     <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushUserNav1">
                         <div class="accordion-body">
                             <ul>
-                                <li><a href="https://www.facebook.com/tadeas.burda.1" target="_blank">Facebook: Tadeáš Burda</a></li>
-                                <li><a href="https://www.instagram.com/tadeas_burda" target="_blank">Instagram: tadeas_burda</a></li>
-                                <li><a href="https://www.linkedin.com/in/tade%C3%A1%C5%A1-burda-b592b61b7" target="_blank">LinkedIn: Tadeáš Burda</a></li>
-                                <li><a href="https://www.itnetwork.cz/portfolio/21367" target="_blank">ITnetwork: Tadeáš Burda</a></li>
-                                <li><a href="https://github.com/TadeasBurda" target="_blank">GitHub: TadeasBurda</a></li>
-                                <li><a href="mailto:tadeas.burda@outlook.com" target="_blank">Email: tadeas.burda@outlook.com</a></li>
-                                <li><a href="tel:+421944302048" target="_blank">Mobil: 0944 302 048</a></li>
+                                <li><a class="text-decoration-none" href="https://www.facebook.com/tadeas.burda.1" target="_blank">Facebook: Tadeáš Burda</a></li>
+                                <li><a class="text-decoration-none" href="https://www.instagram.com/tadeas_burda" target="_blank">Instagram: tadeas_burda</a></li>
+                                <li><a class="text-decoration-none" href="https://www.linkedin.com/in/tade%C3%A1%C5%A1-burda-b592b61b7" target="_blank">LinkedIn: Tadeáš Burda</a></li>
+                                <li><a class="text-decoration-none" href="https://www.itnetwork.cz/portfolio/21367" target="_blank">ITnetwork: Tadeáš Burda</a></li>
+                                <li><a class="text-decoration-none" href="https://github.com/TadeasBurda" target="_blank">GitHub: TadeasBurda</a></li>
+                                <li><a class="text-decoration-none" href="mailto:tadeas.burda@outlook.com" target="_blank">Email: tadeas.burda@outlook.com</a></li>
+                                <li><a class="text-decoration-none" href="tel:+421944302048" target="_blank">Mobil: 0944 302 048</a></li>
                             </ul>
                             <p><small class="text-muted">Poznámka: Prvý kontakt preferujem písomný. </small></p>
                         </div>
