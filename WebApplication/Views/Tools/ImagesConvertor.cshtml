@@ -28,86 +28,75 @@
     <hr />
     @* tool *@
     <section>
-        @* section for upload file *@
-        <section class="mb-5">
-            <h2>
-                <label asp-for="UploadFile">3.1 Vyber obrázok</label>
-            </h2>
-            <p>Nahraj obrázok ktorý chceš konvertovať do WebP. Obrázok by mal byť v čo najväčšej kvalite a <strong>podporované formáty</strong> zatiaľ sú <strong>PNG, JPG</strong>.</p>
-            <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
-                <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-                    @* inout for upload file *@
-                    <div class="mb-3">
-                        <div class="input-group">
-                            <input class="form-control" aria-describedby="btnAddon" asp-for="UploadFile">
-                            <button class="btn btn-dark" type="submit" id="btnAddon">Nahrať</button>
+        <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
+            @* section for upload file *@
+            <section class="mb-5">
+                <h2>
+                    <label asp-for="UploadFiles">3.1 Vyber obrázok</label>
+                </h2>
+                <p>Nahraj obrázok ktorý chceš konvertovať do WebP. Obrázok by mal byť v čo najväčšej kvalite a <strong>podporované formáty</strong> zatiaľ sú <strong>PNG, JPG</strong>.</p>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6">
+                        <div>
+                            <label class="form-label" asp-for="UploadFiles"></label>
+                            <input class="form-control" asp-for="UploadFiles" />
+                            <span class="form-text text-danger" asp-validation-for="UploadFiles"></span>
                         </div>
-                        <span class="text-danger form-text" asp-validation-for="UploadFile"></span>
                     </div>
-                    @if (Model.FileName == null)
-                    {
-                        @* upload image view *@
-                        <picture>
-                            <source media="(max-width:575px)" srcset="~/img/default-placeholder/default-placeholder-540w.webp" type="image/webp" />
-                            <source media="(max-width:767px)" srcset="~/img/default-placeholder/default-placeholder-417w.webp" type="image/webp" />
-                            <source media="(max-width:991px)" srcset="~/img/default-placeholder/default-placeholder-450w.webp" type="image/webp" />
-                            <source media="(max-width:1199px)" srcset="~/img/default-placeholder/default-placeholder-452w.webp" type="image/webp" />
-                            <source media="(max-width:1399px)" srcset="~/img/default-placeholder/default-placeholder-542w.webp" type="image/webp" />
-                            <img class="img-fluid" src="~/img/default-placeholder/default-placeholder.png" alt="default placeholder" asp-append-version="true">
-                        </picture>
-                    }
-                    else
-                    {
-                        <div class="text-center">
-                            <img class="img-fluid" src="@($"~/temporary-files/{Model.FileName}")" alt="uploaded image" asp-append-version="true">
-                        </div>
-                    }
                 </div>
-            </form>
-        </section>
-        @* secion for width inputs *@
-        <section class="table-responsive mb-5">
-            <h2>3.2 Zadaj požadovanú šírku/y obrázku</h2>
-            <p>
-                Do tabuľky <strong>zadaj</strong> rozmer pre <strong>šírku/y</strong> obrázku.
-                <table class="table table-bordered">
-                    <thead class="table-dark">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Šírka</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>
-                                <input class="form-control" type="number" min="1" placeholder="Šírka obrázku väčšia ako 0 a nižšia ako pôvodná." />
-                            </td>
-                            <td>
-                                <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
-                                    </svg>
-                                    &nbsp;Pridať riadok
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-        </section>
-        @* section for bulk download*@
-        <section>
-            <h2>3.3 Stiahnuť</h2>
-            <div class="text-center">
-                <button class="btn btn-success" @(string.IsNullOrEmpty(Model.FileName) ? "disabled" : string.Empty) type="button" onclick="covertAndDownload('@Model?.FileName')">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-                        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
-                    </svg>
-                    &nbsp;Stiahnuť
-                </button>
-            </div>
-        </section>
+            </section>
+            @* secion for width inputs *@
+            <section class="table-responsive mb-5">
+                <h2>3.2 Zadaj požadovanú šírku/y obrázku</h2>
+                <p>Do tabuľky <strong>zadaj</strong> rozmer pre <strong>šírku/y</strong> obrázku.</p>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">
+                                        <label asp-for="Widths"></label>
+                                    </th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Widths.Count; i++)
+                                {
+                                    <tr>
+                                        <th scope="row">@(i + 1)</th>
+                                        <td>
+                                            <input class="form-control" asp-for="Widths[i]" />
+                                            <span class="form-text text-danger" asp-validation-for="Widths[i]"></span>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            @* section for bulk download*@
+            <section>
+                <h2>3.3 Stiahnuť</h2>
+                <div class="text-center">
+                    <button class="btn btn-success" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
+                        </svg>
+                        &nbsp;Stiahnuť
+                    </button>
+                </div>
+            </section>
+        </form>
     </section>
     <hr />
     @* principle *@

@@ -1,35 +1,22 @@
 ﻿function addRow(btn) {
-    var tr = $(btn).parent().parent(); // Return the row that contains the button.
+    var tr = $(btn).parent().parent();
 
-    // Clone the row and clear the input.
     var trClone = tr.clone();
+
     trClone.find("td > input").val("");
 
-    tr.after(trClone); // Insert a clone after the original line.
+    tr.after(trClone);
 
-    // Corrects the numbering of rows in the table.
-    var rows = $("tbody tr > th");
-    for (var i = 0; i < rows.length; i++) {
-        $(rows[i]).text(i + 1);
-    }
+    reindexRows();
 }
 
-function covertAndDownload(fileName) {
-    if (fileName == null) {
-        alert("Musíš nahrať obrázok.");
-    }
-    else {
-        // Create a array from the values in the form.
-        var inputValues = $("tbody").find("input").map(function () {
-            return parseInt($(this).val());
-        }).toArray();
+function reindexRows() {
+    var rows = $("tbody > tr");
+    for (var i = 0; i < rows.length; i++) {
+        $(rows[i]).find("th").text(i + 1); // change row index
 
-        $.post("/api/ConvertImgToWebP", { fileName: fileName, widths: inputValues })
-            .done(function (result) {
-                window.open(window.location.origin + result); // Open link in new window and download file.
-            })
-            .fail(function (xhr, status, error) {
-                alert("Niečo sa pokazilo. Skúste to ešte raz, alebo kontaktujte admina stránky. ");
-            });
-    }     
+        $(rows[i]).find("td > input").attr("id", "Widths_" + i + "_");
+        $(rows[i]).find("td > input").attr("name", "Widths[" + i + "]");
+        $(rows[i]).find("td > span").attr("data-valmsg-for", "Widths_" + i + "_");
+    }
 }
