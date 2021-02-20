@@ -11,82 +11,68 @@
     </ol>
 </nav>
 <div class="container">
+    <small class="text-muted"><i>Napísal: Tadeáš Burda, Dńa: 20.2.2021</i></small>
     <h1># Konvertor obrázkov</h1>
     @* github note *@
     <div class="alert alert-info" role="alert">
-        Kód je možné si preštudovať na mojom GitHube<a href="https://github.com/TadeasBurda/tadeasburda.sk/blob/master/WebApplication/Controllers/ToolsController.cs" target="_blank">(kód kontroleru)</a>.
+        Kód je možné si preštudovať na mojom GitHube(<a class="text-decoration-none" href="https://github.com/TadeasBurda/tadeasburda.sk/blob/master/WebApplication/Controllers/ToolsController.cs" target="_blank">kód kontroleru</a>).
     </div>
     @* description & instructions *@
     <article>
         <h2>1. Popis</h2>
-        <p>Táto stránka súži pre konvertovanie obrázkovú z formátu JPG, alebo PNG do webového formátu WebP. Pri konvertovaní je možné zadať novú šírku/y obrázku.  </p>
-        <p>Tento nástroj primárne súži pre vývoj webov, kde rôzne veľkosti obrázkov a nové úsporné formáty zaisťujú menší dátový prenos a rýchlejšie načítanie stránky. Keďže sa vývoju webou venujem vytvoril som si túto utilitku aby mi uľahčila prácu. Appka je webová pretože vyvíjam na viac strojoch a je to jednoduchšie k aktualizácii. </p>
+        <p>Potrebuješ konvertovať tvoje obrázky do nového formátu od Google, ktorý sa volá <a class="text-decoration-none" href="https://developers.google.com/speed/webp" target="_blank">WebP</a>? Tento nástroj ti to umožní! Ak nevieš čo je formát WebP, tak v skratke sa jedná o <strong>moderný formát</strong> obrázkov, ktorý bol vytvorený <strong>pre weby</strong>(jeho použitie je ale možné kdekoľvek). Tento formát sa vyznačuje <strong>nízkou dátovou veľkosťou</strong>, <strong>veľkou kvalitou kompresie</strong> a v poslednej dobe aj širokým rozšírením na weboch(<a class="text-decoration-none" href="https://www.cnet.com/news/facebook-tries-googles-webp-image-format-users-squawk/" target="_blank">implementoval ho už aj Facebook</a>, aby ušetril miesto na serveroch). Tvoj web z použitím WebP, bude rýchlejší a bude držať krok z dobou!</p>
+        <p>Prečo sa oplatí mať na webe obrázky v rôznej veľkosti? Použitím HTML tagu <a class="text-decoration-none" href="https://www.w3schools.com/tags/tag_picture.asp" target="_blank">picture</a> alebo <a class="text-decoration-none" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank">resposive img</a> , je veľmi výhodné v dnešnej dobe kde väčšina užívateľov navštívi tvoj web v mobilných zariadení. Každý užívateľ ocení že mu <strong>šetríš dáta</strong> tým že mu do prehliadača odošleš len tak veľký obrázok ako potrebuje. Načítať obrázok 1920x1080px na telefóne, ktorý má šírku „len“ 550px je trochu od veci... Ak pri stavbe tvojho webu, alebo pri facelite staršieho webu budeš myslieť na <strong>úsporu dát</strong>, <strong>rýchlosť webu</strong> a <strong>responzivitu</strong>, určite tým získaš iba body++ 🙂</p>
         <br />
         <h2>2. Návod</h2>
-        <p>Vyber obrázok z tvojho disku a nahraj ho na web. Ak sa obrázok nahral v poriadku zobrazí sa pod vstupom. Do tabuľky pod ním zadaj šírku/y ktoré požaduješ(výška sa dopočíta automaticky tak aby sa zachoval pomer strán obrázku). Až vyplníš tabuľku, tlačidlom pod ňou spustíš konvertovanie a následné sťahovanie ZIP súboru. </p>
+        <p>Vyber obrázky ktoré chceš konvertovať(aktuálna podpora pre formáty JPG a PNG, <i>ku dňu 20.2.2021</i>) a do tabuľky zadaj rozmery ktoré chceš aby sa ti vrátili – zadaj len šírku, výška sa dopočíta automaticky aby sa zachoval pomer strán obrázku. Po konvertovaní sa ti automaticky stiahne ZIP súbor z obrázkami.</p>
     </article>
-    <hr />
+    <div class="alert alert-info" role="alert">
+        Ako to funguje sa možeš dočítať v <a class="text-decoration-none" href="#" target="_blank">článku</a> na mojom blogu.
+    </div>
     @* tool *@
-    <section>
+    <section class="mb-5">
+        <h2>3. Konvertor</h2>
         <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
-            @* section for upload file *@
-            <section class="mb-5">
-                <h2>
-                    <label asp-for="UploadFiles">3.1 Vyber obrázok</label>
-                </h2>
-                <p>Nahraj obrázok ktorý chceš konvertovať do WebP. Obrázok by mal byť v čo najväčšej kvalite a <strong>podporované formáty</strong> zatiaľ sú <strong>PNG, JPG</strong>.</p>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-6">
-                        <div>
-                            <label class="form-label" asp-for="UploadFiles"></label>
-                            <input class="form-control" asp-for="UploadFiles" />
-                            <span class="form-text text-danger" asp-validation-for="UploadFiles"></span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            @* secion for width inputs *@
-            <section class="table-responsive mb-5">
-                <h2>3.2 Zadaj požadovanú šírku/y obrázku</h2>
-                <p>Do tabuľky <strong>zadaj</strong> rozmer pre <strong>šírku/y</strong> obrázku.</p>
-                <div class="row justify-content-center">
-                    <div class="col-12 col-md-6">
-                        <table class="table table-bordered">
-                            <thead class="table-dark">
+            <div class="col-12 col-md-8 col-lg-6">
+                @* width inputs *@
+                <div class="mb-5">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">
+                                    <label asp-for="Widths"></label>
+                                </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 0; i < Model.Widths.Count; i++)
+                            {
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">
-                                        <label asp-for="Widths"></label>
-                                    </th>
-                                    <th scope="col"></th>
+                                    <th scope="row">@(i + 1)</th>
+                                    <td>
+                                        <input class="form-control" asp-for="Widths[i]" />
+                                        <span class="form-text text-danger" asp-validation-for="Widths[i]"></span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
+                                            </svg>
+                                        </button>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @for (int i = 0; i < Model.Widths.Count; i++)
-                                {
-                                    <tr>
-                                        <th scope="row">@(i + 1)</th>
-                                        <td>
-                                            <input class="form-control" asp-for="Widths[i]" />
-                                            <span class="form-text text-danger" asp-validation-for="Widths[i]"></span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
-                                                </svg>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                        </tbody>
+                    </table>
                 </div>
-            </section>
-            @* section for bulk download*@
-            <section>
-                <h2>3.3 Stiahnuť</h2>
+                @* upload file *@
+                <div class="mb-5">
+                    <input class="form-control" asp-for="UploadFiles" />
+                    <span class="form-text text-danger" asp-validation-for="UploadFiles"></span>
+                </div>
+                @* download *@
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
@@ -95,18 +81,9 @@
                         &nbsp;Stiahnuť
                     </button>
                 </div>
-            </section>
+            </div>
         </form>
     </section>
-    <hr />
-    @* principle *@
-    <article>
-        <h2>4.1 Front-end</h2>
-        <p>Cez formulár sa nahraje na server súbor obrázku a uloží sa do dočasnej zložky. Užívateľ je presmerovaný späť na stránku, kde mu je zobrazený uložený obrázok aby sa mu vizuálne potvrdilo úspešný nahravanie +  je aktivované tlačidlo pre sťahovanie. Užívateľ zadá do tabuľky zo vstupmi požadované hodnoty a stlačí tlačidlo sťahovania. To spustí funkciu ktorá extrahuje hodnoty z tabuľky a spolu z názvom súboru ich cez AJAX odošle na API servera. Späť sa vráti odkaz na súbor, takže ak je akcia úspešná, otvorí nové okno prehliadača z odkazom, čo vyvolá sťahovanie súboru. </p>
-        <br />
-        <h2>4.2 Back-end</h2>
-        <p>Obrázok je uložený na server aby nemusel nahrávať pri každej zmene šírky. Po zavolaní na API sa vygeneruje unikátny kľuč ktorým sa pomenuje zložka a ZIP súbor, aby sa zamedzilo náhodnému prepisovaniu súborov na servery. Následne je v cykle volaná metóda pre konvert a uloženie obrázku, pre každú šírku z poľa. Všetky upravené obrázky sú uložené do zložky a na tú je zavolaná metóda pre vytvorenie ZIP súboru, ktorý je následne uložený vedľa tejto zložky. Ak všetko prebehlo úspešne, zloží sa adresa k tomu súboru a tá je vrátená. Adresu si odchytí AJAX a spustí sťahovanie. </p>
-    </article>
 </div>
 @section Scripts{
     <environment include="Development">
