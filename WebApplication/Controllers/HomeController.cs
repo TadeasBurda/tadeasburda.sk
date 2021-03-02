@@ -31,9 +31,13 @@ namespace WebApplication.Controllers
         #endregion
 
         #region Views()
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
         public IActionResult Index() => View();
+
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
         public IActionResult Portfolio() => View();
 
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
         public IActionResult Privacy()
         {
             return View();

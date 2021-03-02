@@ -2,7 +2,7 @@
   "scope": "/",
   "theme_color": "#fff",
   "lang": "sk",
-  "categories": [ "wesite" ],
+  "categories": [ "business", "education", "productivity", "utilities" ],
   "name": "Tadeáš Burda",
   "short_name": "Tadeáš Burda",
   "start_url": ".",
