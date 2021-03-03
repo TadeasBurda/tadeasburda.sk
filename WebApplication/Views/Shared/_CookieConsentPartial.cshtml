@@ -8,18 +8,8 @@
 
 @if (showBanner)
 {
-    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        Use this space to summarize your privacy and cookie use policy. <a asp-page="/Privacy">Learn More</a>.
-        <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            <span aria-hidden="true">Accept</span>
-        </button>
+    <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+        <strong>Zatvorením</strong> tejto výstrahy <strong>potvrdzuješ svoj súhlas</strong> z našimi zásadami spracovania osobných údajov a súborov cookies. Viac sa dočítaš na stránke <a class="text-decoration-none" asp-controller="Home" asp-action="Privacy">spracovanie osobných údajnou a cookies</a>. Ak nepotvrdíš svoj súhlas, stránka nemusí pracovať na 100%
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="neco('@cookieString')"></button>
     </div>
-    <script>
-        (function () {
-            var button = document.querySelector("#cookieConsent button[data-cookie-string]");
-            button.addEventListener("click", function (event) {
-                document.cookie = button.dataset.cookieString;
-            }, false);
-        })();
-    </script>
 }
