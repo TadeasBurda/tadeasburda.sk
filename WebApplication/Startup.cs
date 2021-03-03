@@ -70,15 +70,14 @@ namespace WebApplication
             }
             app.UseHttpsRedirection();
 
-            /*
             app.UseStaticFiles(new StaticFileOptions
             {
                 OnPrepareResponse = ctx =>
                 {
-                    ctx.Context.Response.Headers.Add("Cache-Control", "max-age=31536000, immutable"); // Note: Sets the amount of time the browser can save static files.
+                    ctx.Context.Response.Headers.Append(
+                         "Cache-Control", $"public, max-age=31536000, immutable");
                 }
             });
-            */
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
