@@ -70,6 +70,7 @@ namespace WebApplication
             }
             app.UseHttpsRedirection();
 
+            /*
             app.UseStaticFiles(new StaticFileOptions
             {
                 OnPrepareResponse = ctx =>
@@ -77,7 +78,9 @@ namespace WebApplication
                     ctx.Context.Response.Headers.Add("Cache-Control", "max-age=31536000, immutable"); // Note: Sets the amount of time the browser can save static files.
                 }
             });
+            */
 
+            app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseRouting();
 

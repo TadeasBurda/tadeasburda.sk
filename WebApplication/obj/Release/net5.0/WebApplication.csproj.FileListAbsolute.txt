@@ -176,3 +176,5 @@ C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Releas
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Release\net5.0\ref\WebApplication.dll
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Release\net5.0\WebApplication.pdb
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Release\net5.0\WebApplication.genruntimeconfig.cache
+C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Release\net5.0\web.config
+C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Release\net5.0\WebApplication.csprojAssemblyReference.cache
