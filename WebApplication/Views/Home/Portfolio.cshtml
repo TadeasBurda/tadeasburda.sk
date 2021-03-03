@@ -1,13 +1,13 @@
-﻿@{
+﻿<environment include="Development">
+    <link type="text/css" rel="stylesheet" href="~/css/HomeController/Portfolio/site.css" asp-append-version="true" />
+</environment>
+<environment exclude="Development">
+    <link type="text/css" rel="stylesheet" href="~/css/HomeController/Portfolio/site.min.css" asp-append-version="true" />
+</environment>
+@{
     ViewData["title"] = "Moje webové portfólio";
     ViewData["description"] = "Toto je moje webové portfólio, kde nájdeš všetko potrebné o mojej práci.";
 }
-<environment include="Development">
-    <link rel="stylesheet" href="~/css/HomeController/Portfolio/site.css" asp-append-version="true" />
-</environment>
-<environment exclude="Development">
-    <link rel="stylesheet" href="~/css/HomeController/Portfolio/site.min.css" asp-append-version="true" />
-</environment>
 @* website cover images *@
 <section class="mb-3">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">

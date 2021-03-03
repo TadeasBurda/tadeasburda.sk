@@ -177,3 +177,4 @@ C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\web.config
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache

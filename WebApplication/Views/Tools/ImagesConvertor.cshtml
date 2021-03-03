@@ -1,4 +1,10 @@
-﻿@model ImagesConvertorViewModel
+﻿<environment include="Development">
+
+</environment>
+<environment exclude="Development">
+
+</environment>
+@model ImagesConvertorViewModel
 @{
     ViewData["title"] = "Online konvertor obrázkov";
     ViewData["description"] = "Stránka pre konvertovanie formátu, zmenu pomeru strán a orezanie obrázku.";
@@ -87,9 +93,15 @@
 </div>
 @section Scripts{
     <environment include="Development">
-        <script src="~/js/ToolsController/ImagesConvertor/site.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery-validate/jquery.validate.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/js/ToolsController/ImagesConvertor/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script src="~/js/ToolsController/ImagesConvertor/site.min.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery-validate/jquery.validate.min.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/js/ToolsController/ImagesConvertor/site.min.js" asp-append-version="true"></script>
     </environment>
 }

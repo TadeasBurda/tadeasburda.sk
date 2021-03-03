@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MKfitBt8gvPjlkZ9UslDEcPKGIkiLQITDLtQkGamMeKRcBgb3eD4wsKeeqVi6EzUvNI+Ulo3YVeZG/qP/mMeTw==",
+  "dgSpecHash": "RH0hgh+gmsrixVJn5SBWsZwQyOsq5fFBne7Wp1/k/Huv1oKzpcvPIbnGEOPsDFLvz31toewu/taCinSb6J06pw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
+  "projectFilePath": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tadea\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\tadea\\.nuget\\packages\\imageprocessor\\2.9.1\\imageprocessor.2.9.1.nupkg.sha512",
