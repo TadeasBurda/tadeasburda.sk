@@ -7,7 +7,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Net.Http.Headers;
 using WebApplication.Data;
 using WebApplication.Services;
 
@@ -41,13 +40,13 @@ namespace WebApplication
                 // cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 // requires using Microsoft.AspNetCore.Http;
-                options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
             services.Configure<CookieTempDataProviderOptions>(options =>
             {
-                options.Cookie.Name = "TempData";
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // povoluje prenos len cez HTTPS
+                options.Cookie.Name = "CookieTempDataProvider";
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Note: Allows cookies to be transferred only via HTTPS.
             });
 
             #region DI for Services
@@ -75,29 +74,11 @@ namespace WebApplication
             {
                 OnPrepareResponse = ctx =>
                 {
-                    ctx.Context.Response.Headers.Add("Cache-Control", "max-age=31536000, immutable");
-                    ctx.Context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-                    //ctx.Context.Response.Headers.Add("Server", "Microsoft-IIS");
-                    //ctx.Context.Response.Headers.Remove("x-powered-by");
-                    // ctx.Context.Response.Headers.Remove("server");
+                    ctx.Context.Response.Headers.Add("Cache-Control", "max-age=31536000, immutable"); // Note: Sets the amount of time the browser can save static files.
                 }
             });
 
-            app.UseCookiePolicy(); // GDPR
-
-            app.Use(async (context, next) =>
-            {
-                //context.Response.Headers.Add("Content-Security-Policy", "");
-                //context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-                //context.Response.Headers.Add("Referrer-Policy", "no-referrer");
-                //context.Response.Headers.Add("Permissions-Policy", "");
-                //context.Response.Headers.Add("Server", "Microsoft-IIS");
-                //context.Response.Headers.Remove("x-powered-by");
-                await next();
-            });
-            
-
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();
