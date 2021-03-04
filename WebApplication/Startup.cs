@@ -79,7 +79,6 @@ namespace WebApplication
                 }
             });
 
-            app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseRouting();
 
