@@ -74,14 +74,14 @@ namespace WebApplication
             {
                 OnPrepareResponse = ctx =>
                 {
-                    ctx.Context.Response.Headers.Append(
-                         "Cache-Control", $"public, max-age=31536000, immutable");
+                    ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age=31536000, immutable");
                 }
             });
 
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("Referrer-Policy", "strict-origin");
+                context.Response.Headers.Add("Permissions-Policy", "");
                 await next();
             });
 
