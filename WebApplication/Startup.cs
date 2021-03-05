@@ -14,6 +14,8 @@ namespace WebApplication
 {
     public class Startup
     {
+        private const string webUrl = "https://localhost:44384";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -81,7 +83,7 @@ namespace WebApplication
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-                context.Response.Headers.Add("Content-Security-Policy", "default-src 'unsafe-inline' https://localhost:44384 https://www.googletagmanager.com https://www.google-analytics.com/ ; img-src https://localhost:44384 https://www.google-analytics.com/ data:");
+                context.Response.Headers.Add("Content-Security-Policy", $"default-src 'unsafe-inline' {webUrl} https://www.googletagmanager.com https://www.google-analytics.com/ ; img-src {webUrl} https://www.google-analytics.com/ data:");
                 context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
                 context.Response.Headers.Add("Permissions-Policy", "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()");
                 await next();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
+        "projectPath": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\WebApplication.csproj",
         "packagesPath": "C:\\Users\\tadea\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tadea\\source\\repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\obj\\",
+        "outputPath": "C:\\Users\\tadea\\Source\\Repos\\TadeasBurda\\tadeasburda.sk\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tadea\\AppData\\Roaming\\NuGet\\NuGet.Config",
