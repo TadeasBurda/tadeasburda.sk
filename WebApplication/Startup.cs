@@ -83,7 +83,7 @@ namespace WebApplication
                 context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
                 context.Response.Headers.Add("Content-Security-Policy", "default-src 'unsafe-inline' https://localhost:44384 https://www.googletagmanager.com https://www.google-analytics.com/ ; img-src https://localhost:44384 https://www.google-analytics.com/ data:");
                 context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-                context.Response.Headers.Add("Permissions-Policy", "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'");
+                context.Response.Headers.Add("Permissions-Policy", "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()");
                 await next();
             });
 
