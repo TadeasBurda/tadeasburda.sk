@@ -81,7 +81,7 @@ namespace WebApplication
             app.Use(async (context, next) =>
             {
                 context.Response.Headers.Add("Content-Security-Policy", "default-src 'unsafe-inline' https://localhost:44384 https://www.googletagmanager.com https://www.google-analytics.com/ ; img-src https://localhost:44384 https://www.google-analytics.com/ data:");
-                context.Response.Headers.Add("Referrer-Policy", "strict-origin");
+                context.Response.Headers.Add("Referrer-Policy", "no-referrer");
                 context.Response.Headers.Add("Permissions-Policy", "");
                 await next();
             });
