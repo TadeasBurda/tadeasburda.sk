@@ -79,6 +79,12 @@ namespace WebApplication
                 }
             });
 
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("Referrer-Policy", "strict-origin");
+                await next();
+            });
+
             app.UseCookiePolicy();
             app.UseRouting();
 
