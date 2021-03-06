@@ -1,6 +1,7 @@
 ﻿@font-face {
     font-family: Poppins-Regular;
     src: url(../lib/Poppins/Poppins-Regular.ttf);
+    font-display: swap;
 }
 
 html, body {

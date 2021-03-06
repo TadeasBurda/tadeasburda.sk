@@ -6,7 +6,7 @@
     ViewData["og:image"] = "https://tadeasburda.sk/img/share-img.webp";
 }
 <!DOCTYPE html>
-<html style="font-size:14px;font-family:'Times New Roman', Times, serif" lang="sk">
+<html lang="sk">
 <head>
     <meta charset="utf-8" />
     @* Global site tag (gtag.js) - Google Analytics *@
@@ -37,95 +37,35 @@
     <meta property="og:description" content="@ViewData["description"]" />
     @* my css *@
     <environment include="Development">
-        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css" asp-append-version="true" />
-        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-5.0.0-beta2-dist/css/bootstrap.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" asp-append-version="true" />
         <link type="text/css" rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.css" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
-        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" />
-        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-5.0.0-beta2-dist/css/bootstrap.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.min.css" asp-append-version="true" />
         <link type="text/css" rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link type="text/css" rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
-    @* GDPR *@
     <partial name="_CookieConsentPartial" />
-    @* navbar *@
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top border border-light rounded-1">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Tadeáš Burda</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">Domov</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Portfolio">Portfólio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Blog</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarTools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Nástroje
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarTools">
-                            <li><a class="dropdown-item" asp-controller="Tools" asp-action="ImagesConvertor">Konvertor obrázkov</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Účet</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Hladať" aria-label="Hladať">
-                    <button class="btn btn-outline-light" type="submit">Hladať</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-    @* flash messages*@
-    @foreach (var item in ViewContext.TempData.DeserializeToObject<List<FlashMessage>>("Messages"))
-    {
-        <div class="@($"alert alert-{item.Type.ToString().ToLower()} alert-dismissible fade show mx-1")" role="alert">
-            @item.Message
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    }
-    @* web content *@
+
+    <partial name="_LayoutPartial/_NavBar" />
+
+    <partial name="_LayoutPartial/_FlashMessages" />
+
     <main>
         @RenderBody()
     </main>
-    @* contacts *@
-    <footer class="bg-dark border border-light rounded-1">
-        <div class="container text-center">
-            @* fb *@
-            <a class="text-decoration-none text-light mx-1" href="https://www.facebook.com/tadeas.burda.1" target="_blank" aria-label="Môj profil na facebooku">
-                <i class="bi bi-facebook"></i>
-            </a>
-            @* email *@
-            <a class="text-decoration-none text-light mx-1" href="mailto:tadeas.burda@outlook.com" target="_blank" aria-label="Môj osobný email">
-                <i class="bi bi-envelope-fill"></i>
-            </a>
-            @* linkedin *@
-            <a class="text-decoration-none text-light mx-1" href="https://www.linkedin.com/in/tade%C3%A1%C5%A1-burda-b592b61b7" target="_blank" aria-label="Môj profil na LinkedIn">
-                <i class="bi bi-linkedin"></i>
-            </a>
-            @* github*@
-            <a class="text-decoration-none text-light mx-1" href="https://github.com/TadeasBurda" target="_blank" aria-label="Môj profil na GitHube">
-                <i class="bi bi-github"></i>
-            </a>
-        </div>
-    </footer>
+
+    <partial name="_LayoutPartial/_Footer" />
+
     <environment include="Development">
-        <script type="text/javascript" src="~/lib/bootstrap-5.0.0-beta2-dist/js/bootstrap.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.js" asp-append-version="true"></script>
         <script type="text/javascript" src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
-        <script type="text/javascript" src="~/lib/bootstrap-5.0.0-beta2-dist/js/bootstrap.min.js" asp-append-version="true"></script>
+        <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
         <script type="text/javascript" src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
     @* render scripts *@

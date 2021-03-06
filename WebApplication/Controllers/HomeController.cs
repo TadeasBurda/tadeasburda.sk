@@ -79,7 +79,7 @@ namespace WebApplication.Controllers
         #region Helpers
         private List<SitemapNode> GetNodes()
         {
-            List<SitemapNode> nodes = new List<SitemapNode>();
+            List<SitemapNode> nodes = new();
             nodes.AddRange(GetViewsNodes());
             nodes.Add(new SitemapNode(HttpContext.Request.PathBase) { Images = GetImagesNodes() });
 
@@ -87,7 +87,7 @@ namespace WebApplication.Controllers
         }
         private List<SitemapNode> GetViewsNodes()
         {
-            List<SitemapNode> list = new List<SitemapNode>
+            List<SitemapNode> list = new()
             {
                 new SitemapNode(Url.Action("Index", "Home")),
                 new SitemapNode(Url.Action("Privacy", "Home")),
@@ -98,7 +98,7 @@ namespace WebApplication.Controllers
         }
         private List<SitemapImage> GetImagesNodes()
         {
-            List<SitemapImage> list = new List<SitemapImage>();
+            List<SitemapImage> list = new();
 
             foreach (string url in fileServices.ReturnFilePaths("wwwroot/img"))
                 list.Add(new SitemapImage(url));

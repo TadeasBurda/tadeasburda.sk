@@ -1,14 +1,9 @@
-﻿<environment include="Development">
-
-</environment>
-<environment exclude="Development">
-
-</environment>
-@model ImagesConvertorViewModel
+﻿@model ImagesConvertorViewModel
 @{
     ViewData["title"] = "Online konvertor obrázkov";
     ViewData["description"] = "Stránka pre konvertovanie formátu, zmenu pomeru strán a orezanie obrázku.";
 }
+
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb mx-1">
         <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Domov</a></li>
@@ -16,81 +11,13 @@
         <li class="breadcrumb-item active" aria-current="page">Konvertor obrázkov</li>
     </ol>
 </nav>
+
 <div class="container">
-    <small class="text-muted"><i>Napísal: Tadeáš Burda, Dňa: 20.2.2021</i></small>
-    <h1># Konvertor obrázkov</h1>
-    @* github note *@
-    <div class="alert alert-info" role="alert">
-        Kód je možné si preštudovať na mojom GitHube(<a class="text-decoration-none" href="https://github.com/TadeasBurda/tadeasburda.sk/blob/master/WebApplication/Controllers/ToolsController.cs" target="_blank">kód kontroleru</a>).
-    </div>
-    @* description & instructions *@
-    <article>
-        <h2>1. Popis</h2>
-        <p>Potrebuješ konvertovať tvoje obrázky do nového formátu od Google, ktorý sa volá <a class="text-decoration-none" href="https://developers.google.com/speed/webp" target="_blank">WebP</a>? Tento nástroj ti to umožní! Ak nevieš čo je formát WebP, tak v skratke sa jedná o <strong>moderný formát</strong> obrázkov, ktorý bol vytvorený <strong>pre weby</strong>(jeho použitie je ale možné kdekoľvek). Tento formát sa vyznačuje <strong>nízkou dátovou veľkosťou</strong>, <strong>veľkou kvalitou kompresie</strong> a v poslednej dobe aj širokým rozšírením na weboch(<a class="text-decoration-none" href="https://www.cnet.com/news/facebook-tries-googles-webp-image-format-users-squawk/" target="_blank">implementoval ho už aj Facebook</a>, aby ušetril miesto na serveroch). Tvoj web z použitím WebP, bude rýchlejší a bude držať krok z dobou!</p>
-        <p>Prečo sa oplatí mať na webe obrázky v rôznej veľkosti? Použitím HTML tagu <a class="text-decoration-none" href="https://www.w3schools.com/tags/tag_picture.asp" target="_blank">picture</a> alebo <a class="text-decoration-none" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank">resposive img</a> , je veľmi výhodné v dnešnej dobe kde väčšina užívateľov navštívi tvoj web z mobilných zariadení. Každý užívateľ ocení že mu <strong>šetríš dáta</strong> tým že mu do prehliadača odošleš len tak veľký obrázok ako potrebuje. Načítať obrázok 1920x1080px na telefóne, ktorý má šírku „len“ 550px je trochu od veci... Ak pri stavbe tvojho webu, alebo pri facelite staršieho webu budeš myslieť na <strong>úsporu dát</strong>, <strong>rýchlosť webu</strong> a <strong>responzivitu</strong>, určite tým získaš iba body++ 🙂</p>
-        <br />
-        <h2>2. Návod</h2>
-        <p>Vyber obrázky ktoré chceš konvertovať(aktuálna podpora pre formáty JPG a PNG, <i>ku dňu 20.2.2021</i>) a do tabuľky zadaj rozmery ktoré chceš aby sa ti vrátili – zadaj len šírku, výška sa dopočíta automaticky aby sa zachoval pomer strán obrázku. Po konvertovaní sa ti automaticky stiahne ZIP súbor z obrázkami.</p>
-    </article>
-    <div class="alert alert-info" role="alert">
-        Ako to funguje sa možeš dočítať v <a class="text-decoration-none" href="#" target="_blank">článku</a> na mojom blogu.
-    </div>
-    @* tool *@
-    <section class="mb-5">
-        <h2>3. Konvertor</h2>
-        <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
-            <div class="col-12 col-md-8 col-lg-6">
-                @* width inputs *@
-                <div class="mb-5">
-                    <table class="table table-bordered">
-                        <thead class="table-dark">
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">
-                                    <label asp-for="Widths"></label>
-                                </th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @for (int i = 0; i < Model.Widths.Count; i++)
-                            {
-                                <tr>
-                                    <th scope="row">@(i + 1)</th>
-                                    <td>
-                                        <input class="form-control" asp-for="Widths[i]" />
-                                        <span class="form-text text-danger" asp-validation-for="Widths[i]"></span>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm mx-1" type="button" onclick="addRow(this)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8zM7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10z" />
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-                @* upload file *@
-                <div class="mb-5">
-                    <input class="form-control" asp-for="UploadFiles" />
-                    <span class="form-text text-danger" asp-validation-for="UploadFiles"></span>
-                </div>
-                @* download *@
-                <div class="text-center">
-                    <button class="btn btn-success" type="submit">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-                            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z" />
-                        </svg>
-                        &nbsp;Stiahnuť
-                    </button>
-                </div>
-            </div>
-        </form>
-    </section>
+    <partial name="ImageControlerPartial/_Description" />
+
+    <partial name="ImageControlerPartial/_Form" model="@Model" />
 </div>
+
 @section Scripts{
     <environment include="Development">
         <script type="text/javascript" src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
