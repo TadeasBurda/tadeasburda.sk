@@ -2,12 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.IO;
 using System.IO.Compression;
-using WebApplication.Classes;
-using WebApplication.Extensions;
+using WebApplication.Models;
+using WebApplication.Models.Extensions;
+using WebApplication.Models.Services;
 using WebApplication.Models.ViewModels.ToolsController;
-using WebApplication.Services;
 
 namespace WebApplication.Controllers
 {

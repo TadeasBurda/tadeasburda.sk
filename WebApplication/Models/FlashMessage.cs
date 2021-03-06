@@ -1,4 +1,4 @@
-﻿namespace WebApplication.Classes
+﻿namespace WebApplication.Models
 {
     public enum FlashMessageType
 	{

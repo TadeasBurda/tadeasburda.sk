@@ -5,7 +5,7 @@ using System;
 using System.Drawing;
 using System.IO;
 
-namespace WebApplication.Services
+namespace WebApplication.Models.Services
 {
     public interface IImageServices
     {
@@ -67,7 +67,7 @@ namespace WebApplication.Services
                 _ => throw new Exception($"Image format {image.ContentType} is not supported."),
             };
 
-            using ImageFactory imageFactory = new ImageFactory(preserveExifData: true);
+            using ImageFactory imageFactory = new(preserveExifData: true);
             imageFactory.Load(image.OpenReadStream())
                         .Resize(CalculateHeight(image, newWidth))
                         .Format(new WebPFormat { Quality = 90 })
@@ -92,7 +92,7 @@ namespace WebApplication.Services
                 _ => throw new Exception($"Image format {image.ContentType} is not supported."),
             };
 
-            using ImageFactory imageFactory = new ImageFactory(preserveExifData: true);
+            using ImageFactory imageFactory = new(preserveExifData: true);
             imageFactory.Load(image.OpenReadStream())
                         .Format(new WebPFormat { Quality = 90 })
                         .Save(Path.Combine(directoryPath, newName));

@@ -28,27 +28,20 @@ using WebApplication.Models;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
-using WebApplication.Extensions;
+using WebApplication.Models.Extensions;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 5 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
-using WebApplication.Classes;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 6 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
 using WebApplication.Models.ViewModels.ToolsController;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"013c08088162056cf33a05e2d62702005c408661", @"/Views/Shared/_LayoutPartial/_NavBar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70fde5361f1bf1a4deab84356008a5dd43b9c93f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"58b8d9073d3f00fb48490f0b6f0cf05e52e471f5", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__LayoutPartial__NavBar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("navbar-brand"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -88,7 +81,7 @@ using WebApplication.Models.ViewModels.ToolsController;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark sticky-top border border-light rounded-1\">\r\n    <div class=\"container-fluid\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c4086617562", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c4086617362", async() => {
                 WriteLiteral("Tadeáš Burda");
             }
             );
@@ -114,7 +107,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             <ul class=""navbar-nav me-auto mb-2 mb-lg-0"">
                 <li class=""nav-item"">
                     ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c4086619516", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c4086619316", async() => {
                 WriteLiteral("Domov");
             }
             );
@@ -134,7 +127,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866111130", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866110930", async() => {
                 WriteLiteral("Portfólio");
             }
             );
@@ -164,7 +157,7 @@ using WebApplication.Models.ViewModels.ToolsController;
                     </a>
                     <ul class=""dropdown-menu"" aria-labelledby=""navbarTools"">
                         <li>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866113236", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866113036", async() => {
                 WriteLiteral("Konvertor obrázkov");
             }
             );
@@ -183,7 +176,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("</li>\r\n                    </ul>\r\n                </li>\r\n                <li class=\"nav-item\">\r\n                    <a class=\"nav-link disabled\" href=\"#\" tabindex=\"-1\" aria-disabled=\"true\">Účet</a>\r\n                </li>\r\n            </ul>\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866114966", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "013c08088162056cf33a05e2d62702005c40866114766", async() => {
                 WriteLiteral("\r\n                <input class=\"form-control me-2\" type=\"search\" placeholder=\"Hladať\" aria-label=\"Hladať\">\r\n                <button class=\"btn btn-outline-light\" type=\"submit\">Hladať</button>\r\n            ");
             }
             );

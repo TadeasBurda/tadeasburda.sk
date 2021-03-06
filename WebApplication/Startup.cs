@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApplication.Data;
-using WebApplication.Services;
+using WebApplication.Models.Services;
 
 namespace WebApplication
 {

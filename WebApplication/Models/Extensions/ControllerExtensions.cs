@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using WebApplication.Classes;
+using WebApplication.Models;
 
-namespace WebApplication.Extensions
+namespace WebApplication.Models.Extensions
 {
     public static class ControllerExtensions
     {

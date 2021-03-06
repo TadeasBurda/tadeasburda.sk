@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 
-namespace WebApplication.ValidationAttributes
+namespace WebApplication.Models.ValidationAttributes
 {
     public class AllowedExtensionsAttribute: ValidationAttribute
     {

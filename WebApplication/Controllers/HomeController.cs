@@ -5,10 +5,8 @@ using SimpleMvcSitemap.Images;
 using System.Collections.Generic;
 using System.Diagnostics;
 using WebApplication.Models;
-using WebApplication.Services;
-using WebApplication.Extensions;
-using WebApplication.Classes;
-using System;
+using WebApplication.Models.Extensions;
+using WebApplication.Models.Services;
 
 namespace WebApplication.Controllers
 {

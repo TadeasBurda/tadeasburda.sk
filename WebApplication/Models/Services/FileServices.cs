@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace WebApplication.Services
+namespace WebApplication.Models.Services
 {
     public interface IFileServices
     {
@@ -15,9 +15,9 @@ namespace WebApplication.Services
     {
         public List<string> ReturnFilePaths(string directoryPath)
         {
-            List<string> urls = new List<string>();
+            List<string> urls = new();
 
-            DirectoryInfo main = new DirectoryInfo(directoryPath);
+            DirectoryInfo main = new(directoryPath);
             if (main.Exists)
             {
                 // add path children
