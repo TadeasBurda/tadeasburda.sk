@@ -1,3 +1,3 @@
-﻿function neco(cookieString) {
+﻿function setCookiePolicy(cookieString) {
     document.cookie = cookieString;
 }
