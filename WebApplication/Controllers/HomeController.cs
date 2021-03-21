@@ -12,33 +12,13 @@ namespace WebApplication.Controllers
 {
     public class HomeController : Controller
     {
-        #region private
+
+        private readonly FileServices fileServices;
         private readonly ILogger<HomeController> logger;
-        #endregion
-
-        #region Services
-        private readonly IFileServices fileServices;
-        #endregion
-
-        #region Constructs
-        public HomeController(ILogger<HomeController> logger, IFileServices fileServices)
+        public HomeController(ILogger<HomeController> logger, FileServices fileServices)
         {
             this.logger = logger;
             this.fileServices = fileServices;
-        }
-        #endregion
-
-        #region Views()
-        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
-        public IActionResult Index() => View();
-
-        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
-        public IActionResult Portfolio() => View();
-
-        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -46,11 +26,6 @@ namespace WebApplication.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        #endregion
-
-        #region api
-        [Route("/sitemap.xml"), HttpGet]
-        public ActionResult GetSitemap() => new SitemapProvider().CreateSitemap(new SitemapModel(GetNodes()));
 
         [Route("/api/Error")]
         public IActionResult Error(int? statusCode = null)
@@ -72,9 +47,31 @@ namespace WebApplication.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-        #endregion
 
-        #region Helpers
+        [Route("/sitemap.xml"), HttpGet]
+        public ActionResult GetSitemap() => new SitemapProvider().CreateSitemap(new SitemapModel(GetNodes()));
+
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
+        public IActionResult Index() => View();
+
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
+        public IActionResult Portfolio() => View();
+
+        [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        private List<SitemapImage> GetImagesNodes()
+        {
+            List<SitemapImage> list = new();
+
+            foreach (string url in fileServices.ReturnFilePaths("wwwroot/img"))
+                list.Add(new SitemapImage(url));
+
+            return list;
+        }
+
         private List<SitemapNode> GetNodes()
         {
             List<SitemapNode> nodes = new();
@@ -94,15 +91,5 @@ namespace WebApplication.Controllers
 
             return list;
         }
-        private List<SitemapImage> GetImagesNodes()
-        {
-            List<SitemapImage> list = new();
-
-            foreach (string url in fileServices.ReturnFilePaths("wwwroot/img"))
-                list.Add(new SitemapImage(url));
-
-            return list;
-        }
-        #endregion
     }
 }

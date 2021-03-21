@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.IO;
 using System.IO.Compression;
 using WebApplication.Models;
 using WebApplication.Models.Extensions;
@@ -12,23 +14,18 @@ namespace WebApplication.Controllers
 {
     public class ToolsController : Controller
     {
-        #region private
+        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly FileServices fileServices;
+        private readonly ImageServices imageServices;
         private readonly ILogger<ToolsController> logger;
-        #endregion
-
-        #region Services
-        private readonly IImageServices imageServices;
-        private readonly IFileServices fileServices;
-        #endregion
-
-        public ToolsController(IImageServices imageServices, IFileServices fileServices, ILogger<ToolsController> logger)
+        public ToolsController(IWebHostEnvironment webHostEnvironment, ImageServices imageServices, FileServices fileServices, ILogger<ToolsController> logger)
         {
+            this.webHostEnvironment = webHostEnvironment;
             this.imageServices = imageServices;
             this.fileServices = fileServices;
             this.logger = logger;
         }
 
-        #region Views()
         [HttpGet]
         public IActionResult ImagesConvertor() => View(new ImagesConvertorViewModel());
 
@@ -38,20 +35,32 @@ namespace WebApplication.Controllers
             if (ModelState.IsValid)
             {
                 Guid guid = Guid.NewGuid(); // Create a unique code for a folder of images and ZIP file.
+                string directoryPath = Path.Combine(webHostEnvironment.WebRootPath, "temporary-files", guid.ToString());
 
                 try
                 {
                     foreach (IFormFile image in model.UploadFiles)
                     {
-                        imageServices.ConverFileToWebP(image, $"wwwroot/temporary-files/{guid}"); // Convert original to WebP.
+                        // convert original and save
+                        if (model.OutputWeb)
+                            imageServices.ConvertImage(image, directoryPath, ImageServices.EImageFormat.WebP);
+                        if (model.OutputJpeg)
+                            imageServices.ConvertImage(image, directoryPath, ImageServices.EImageFormat.Jpeg);
 
+                        // edit sizes and save
                         foreach (int width in model.Widths)
-                            imageServices.ConverFileToWebP(image, width, $"wwwroot/temporary-files/{guid}"); // Convert the original to WebP and change its sizes scale.
+                        {
+                            if (model.OutputWeb)
+                                imageServices.ConvertImage(image, directoryPath, ImageServices.EImageFormat.WebP, width);
+                            if (model.OutputJpeg)
+                                imageServices.ConvertImage(image, directoryPath, ImageServices.EImageFormat.Jpeg, width);
+                        }
                     }
 
-                    ZipFile.CreateFromDirectory($"wwwroot/temporary-files/{guid}", $"wwwroot/temporary-files/{guid}.zip"); // Create a ZIP from the folder in which the edited images.
+                    ZipFile.CreateFromDirectory(directoryPath, $"{directoryPath}.zip"); // Create a ZIP from the folder in which the edited images.
 
-                    return File($"temporary-files/{guid}.zip", "application/zip", "kovertované-obrázky.zip");
+                    FileStream fileStream = new($"{directoryPath}.zip", FileMode.Open);
+                    return File(fileStream, "application/zip", "kovertované-obrázky.zip");
                 }
                 catch (Exception e)
                 {
@@ -64,6 +73,6 @@ namespace WebApplication.Controllers
 
             return View(model);
         }
-        #endregion
+
     }
 }

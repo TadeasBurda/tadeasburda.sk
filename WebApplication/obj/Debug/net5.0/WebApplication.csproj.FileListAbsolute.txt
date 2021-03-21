@@ -183,5 +183,6 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\PortfolioPartial\_LinksToWebsites.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\PortfolioPartial\_DescriptionsOfWebsites.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\PortfolioPartial\_TitlePhotosInCarousel.cshtml.g.cs
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImageControlerPartial\_Description.cshtml.g.cs
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImageControlerPartial\_Form.cshtml.g.cs
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImagesConvertor\_DescriptionPartial.cshtml.g.cs
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImagesConvertor\_FormPartial.cshtml.g.cs

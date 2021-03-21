@@ -6,7 +6,7 @@
     <form class="row justify-content-center" enctype="multipart/form-data" method="post" asp-action="ImagesConvertor">
         <div class="col-12 col-md-8 col-lg-6">
             @* width inputs *@
-            <div class="mb-5">
+            <div class="mb-3">
                 <table class="table table-bordered">
                     <thead class="table-dark">
                         <tr>
@@ -37,8 +37,25 @@
                 </table>
             </div>
 
+            @*output formats*@
+            <div class="mb-3">
+                <div class="d-flex justify-content-evenly">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="OutputWeb" />
+                        <label class="form-check-label" asp-for="OutputWeb">WebP</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" asp-for="OutputJpeg" />
+                        <label class="form-check-label" asp-for="OutputJpeg">Jpeg</label>
+                    </div>
+                </div>
+                <p class="text-muted">
+                    <small><em>Prehliadač Safari nepodporuje formát WebP...</em></small>
+                </p>
+            </div>
+
             @* upload file *@
-            <div class="mb-5">
+            <div class="mb-3">
                 <input class="form-control" asp-for="UploadFiles" />
                 <span class="form-text text-danger" asp-validation-for="UploadFiles"></span>
             </div>

@@ -17,6 +17,12 @@ namespace WebApplication.Models.ViewModels.ToolsController
         [MinLength(1)]
         public List<int> Widths { get; set; }
 
+        [Display(Name = "WebP")]
+        public bool OutputWeb { get; set; }
+
+        [Display(Name = "Jpeg")]
+        public bool OutputJpeg { get; set; }
+
         public ImagesConvertorViewModel()
         {
             UploadFiles = new List<IFormFile>();
@@ -24,6 +30,7 @@ namespace WebApplication.Models.ViewModels.ToolsController
             {
                 1
             };
+            OutputWeb = OutputJpeg = true;
         }
     }
 }

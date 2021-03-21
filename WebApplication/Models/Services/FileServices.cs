@@ -5,13 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models.Services
 {
-    public interface IFileServices
-    {
-        List<string> ReturnFilePaths(string directoryPath);
-        Task SaveFileToDirectoryAsync(IFormFile file, string directoryPath);
-    }
-
-    public class FileServices: IFileServices
+    public class FileServices
     {
         public List<string> ReturnFilePaths(string directoryPath)
         {

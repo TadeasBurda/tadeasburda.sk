@@ -3,100 +3,93 @@ using ImageProcessor.Plugins.WebP.Imaging.Formats;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 
 namespace WebApplication.Models.Services
 {
-    public interface IImageServices
+    public class ImageServices
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="image"></param>
-        /// <param name="newWidth">New width - height is calculated.</param>
-        /// <param name="directoryPath">The folder in which to save the new file.</param>
-        void ConverFileToWebP(IFormFile image, int newWidth, string directoryPath);
+        public enum EImageFormat { Jpeg, WebP }
 
         /// <summary>
-        /// 
+        /// Converts the image to a format and saves it to a folder.
+        /// </summary>
+        /// <param name="formFile"></param>
+        /// <param name="saveDirectory"></param>
+        /// <param name="saveFormat"></param>
+        /// <param name="width">If the width is null, the original is saved in the desired size.</param>
+        public void ConvertImage(IFormFile formFile, string saveDirectory, EImageFormat saveFormat, int? width = null)
+        {
+            Image image = Image.FromStream(formFile.OpenReadStream());
+            image = EditImageSizes(image); // edit image weidth/ height
+
+            // create folder if not exist
+            if (!Directory.Exists(saveDirectory))
+                Directory.CreateDirectory(saveDirectory);
+
+            string savePath = Path.Combine(saveDirectory, GetNewName(formFile, saveFormat, width)); // create new name
+
+            if (saveFormat == EImageFormat.Jpeg) // save as Jpeg
+                image.Save(savePath, ImageFormat.Jpeg);
+            else if (saveFormat == EImageFormat.WebP) // save as WebP
+            {
+                using ImageFactory imageFactory = new(preserveExifData: true);
+                imageFactory.Load(image)
+                                .Format(new WebPFormat { Quality = 90 })
+                                    .Save(savePath);
+            }
+        }
+
+        /// <summary>
+        /// If width is specified, adjusts the width / height of the image to maintain the aspect ratio.
+        /// If no width is specified, it returns without change.
         /// </summary>
         /// <param name="image"></param>
-        /// <param name="directoryPath">The folder in which to save the new file.</param>
-        void ConverFileToWebP(IFormFile image, string directoryPath);
-    }
-
-    public class ImageServices: IImageServices
-    {
-        #region private Methods()
-        /// <summary>
-        /// Recalculate the height of the image to maintain the aspect ratio.
-        /// </summary>
-        /// <param name="file"></param>
-        /// <param name="newWidth"></param>
+        /// <param name="width"></param>
         /// <returns></returns>
-        private static Size CalculateHeight(IFormFile file, int newWidth)
+        private static Image EditImageSizes(Image image, int? width = null)
         {
-            using Image image = Image.FromStream(file.OpenReadStream());
+            if (!width.HasValue) // return original
+                return image;
 
-            if (newWidth > image.Width)
-                throw new Exception($"The specified width cannot be greater than the original image width.[NewWidth = {newWidth} & OldWidth = {image.Width}]");
+            // ***** calculate new height *****
 
-            int height = (int)Math.Round((image.Height / (image.Width / (double)newWidth)));
+            if (width.Value > image.Width)
+                throw new Exception($"The specified width cannot be greater than the original image width.[NewWidth = {width.Value} & OldWidth = {image.Width}]");
 
-            return new Size(newWidth, height);
-        }
-        #endregion
+            int height = (int)Math.Round((image.Height / (image.Width / (double)width.Value)));
 
-        #region public Methods()
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="fileInfo"></param>
-        /// <param name="newWidth">New width - height is calculated.</param>
-        /// <param name="directory">The folder in which to save the new file.</param>
-        public void ConverFileToWebP(IFormFile image, int newWidth, string directoryPath)
-        {
-            if (!Directory.Exists(directoryPath))
-                Directory.CreateDirectory(directoryPath);
-
-            string newName = image.ContentType switch
-            {
-                "image/jpg" => image.FileName.Replace(".jpg", $"-{newWidth}w.webp"),
-                "image/jpeg" => image.FileName.Replace(".jpg", $"-{newWidth}w.webp"),
-                "image/png" => image.FileName.Replace(".png", $"-{newWidth}w.webp"),
-                _ => throw new Exception($"Image format {image.ContentType} is not supported."),
-            };
-
-            using ImageFactory imageFactory = new(preserveExifData: true);
-            imageFactory.Load(image.OpenReadStream())
-                        .Resize(CalculateHeight(image, newWidth))
-                        .Format(new WebPFormat { Quality = 90 })
-                        .Save(Path.Combine(directoryPath, newName));
+            return new Bitmap(image, width.Value, height);
         }
 
         /// <summary>
-        /// 
+        /// Edit image name by format.
+        /// If a width is specified, it is added to the name.
+        /// If no width is specified, it is added to the -original name.
         /// </summary>
-        /// <param name="fileInfo"></param>
-        /// <param name="directory">The folder in which to save the new file.</param>
-        public void ConverFileToWebP(IFormFile image, string directoryPath)
+        /// <param name="formFile"></param>
+        /// <param name="imageFormat"></param>
+        /// <param name="width"></param>
+        /// <returns></returns>
+        private static string GetNewName(IFormFile formFile, EImageFormat imageFormat, int? width = null)
         {
-            if (!Directory.Exists(directoryPath))
-                Directory.CreateDirectory(directoryPath);
-
-            string newName = image.ContentType switch
+            if (imageFormat == EImageFormat.Jpeg)
             {
-                "image/jpg" => image.FileName.Replace(".jpg", "-original.webp"),
-                "image/jpeg" => image.FileName.Replace(".jpg", "-original.webp"),
-                "image/png" => image.FileName.Replace(".png", "-original.webp"),
-                _ => throw new Exception($"Image format {image.ContentType} is not supported."),
-            };
+                if (width.HasValue)
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-w{width.Value}.jpeg";
+                else
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-original.jpeg";
+            }
+            else if (imageFormat == EImageFormat.WebP)
+            {
+                if (width.HasValue)
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-w{width.Value}.webp";
+                else
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-original.webp";
+            }
 
-            using ImageFactory imageFactory = new(preserveExifData: true);
-            imageFactory.Load(image.OpenReadStream())
-                        .Format(new WebPFormat { Quality = 90 })
-                        .Save(Path.Combine(directoryPath, newName));
+            throw new ArgumentNullException(nameof(imageFormat));
         }
-        #endregion
     }
 }
