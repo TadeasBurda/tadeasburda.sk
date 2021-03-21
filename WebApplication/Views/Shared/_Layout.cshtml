@@ -3,7 +3,7 @@
     ViewData["description"] = "Tadeáš Burda osobná webstránka. Moje portfólio, blog, Petriho miska, atď.";
     ViewData["url"] = "https://tadeasburda.sk" + Context.Request.Path;
     ViewData["og:type"] = "website";
-    ViewData["og:image"] = "https://tadeasburda.sk/img/share-img.webp";
+    ViewData["og:image"] = "https://tadeasburda.sk/img/facebook-share.jpg";
 }
 <!DOCTYPE html>
 <html lang="sk">
@@ -48,17 +48,17 @@
     </environment>
 </head>
 <body>
-    <partial name="_CookieConsentPartial" />
+    <partial name="_CookieConsentPartial.cshtml" />
 
-    <partial name="_LayoutPartial/_NavBar" />
+    <partial name="_Layout/_NavBarPartial.cshtml" />
 
-    <partial name="_LayoutPartial/_FlashMessages" />
+    <partial name="_Layout/_FlashMessagesPartial.cshtml" />
 
     <main>
         @RenderBody()
     </main>
 
-    <partial name="_LayoutPartial/_Footer" />
+    <partial name="_Layout/_FooterPartial.cshtml" />
 
     <environment include="Development">
         <script type="text/javascript" src="~/lib/twitter-bootstrap/js/bootstrap.js" asp-append-version="true"></script>

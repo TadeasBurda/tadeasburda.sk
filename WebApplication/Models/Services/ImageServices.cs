@@ -77,14 +77,14 @@ namespace WebApplication.Models.Services
             if (imageFormat == EImageFormat.Jpeg)
             {
                 if (width.HasValue)
-                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-w{width.Value}.jpeg";
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-{width.Value}w.jpeg";
                 else
                     return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-original.jpeg";
             }
             else if (imageFormat == EImageFormat.WebP)
             {
                 if (width.HasValue)
-                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-w{width.Value}.webp";
+                    return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-{width.Value}w.webp";
                 else
                     return $"{Path.GetFileNameWithoutExtension(formFile.FileName)}-original.webp";
             }
