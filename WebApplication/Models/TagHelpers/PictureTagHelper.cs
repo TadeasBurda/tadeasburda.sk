@@ -14,7 +14,7 @@ namespace WebApplication.Models.TagHelpers
         public string Format { get; set; }
 
         /// <summary>
-        /// Example: xs:100px;sm:200px;md:300px;lg:400px;xl:500px;xxl:600px
+        /// Example: xs-100px sm-200px md-300px lg-400px xl-500px xxl-600px
         /// </summary>
         public string Media { get; set; }
 
@@ -41,13 +41,13 @@ namespace WebApplication.Models.TagHelpers
         private string GetSizesAttribute()
         {
             List<string> sizes = new();
-            foreach (string item in Media.Split(";"))
+            foreach (string item in Media.Split(" "))
             {
-                string[] media = item.Split(":");
+                string[] media = item.Split("-");
                 switch (media[0])
                 {
                     case "xs":
-                        sizes.Add($"(max-width: 576px) {media[1]}");
+                        sizes.Add($"(max-width: 575px) {media[1]}");
                         break;
                     case "sm":
                         sizes.Add($"(max-width: 767px) {media[1]}");
