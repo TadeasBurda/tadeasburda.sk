@@ -177,14 +177,13 @@ C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\bin\Debug\net5.0\web.config
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImagesConvertor\_DescriptionPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Tools\ImagesConvertor\_FormPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio\_DescriptionsOfWebsitesPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio\_LinksToWebsitesPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Portfolio\_TitlePhotosInCarouselPartial.cshtml.g.cs
-C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Index\_ProfilPhotoPartial.cshtml.g.cs
 C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Home\Index\_FoldingMenuPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_FlashMessagesPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_FooterPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_NavBarPartial.cshtml.g.cs
+C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csprojAssemblyReference.cache

@@ -4,7 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            <partial name="Index/_ProfilPhotoPartial.cshtml" />
+            @*profil photo*@
+            ​<picture>
+                <ext-source type="image/webp" source="/img/profile-photos/profile-photo-original.webp" source-width="600w;500w;400w;300w;200w" />
+                <ext-img src="/img/profile-photos/profile-photo-original.jpeg" source-width="600w;500w;400w;300w;200w" class="img-fluid rounded-1" alt="Tadeáš Burda" asp-append-version="true" />
+            </picture>
         </div>
         <div class="col-sm">
             <partial name="Index/_FoldingMenuPartial.cshtml" />

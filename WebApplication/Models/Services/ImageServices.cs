@@ -22,7 +22,7 @@ namespace WebApplication.Models.Services
         public void ConvertImage(IFormFile formFile, string saveDirectory, EImageFormat saveFormat, int? width = null)
         {
             Image image = Image.FromStream(formFile.OpenReadStream());
-            image = EditImageSizes(image); // edit image weidth/ height
+            image = EditImageSizes(image, width); // edit image weidth/ height
 
             // create folder if not exist
             if (!Directory.Exists(saveDirectory))
