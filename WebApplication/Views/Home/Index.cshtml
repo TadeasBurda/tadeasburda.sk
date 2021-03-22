@@ -5,9 +5,8 @@
     <div class="row">
         <div class="col-sm">
             @*profil photo*@
-            ​<picture>
-                <ext-source type="image/webp" source="/img/profile-photos/profile-photo-original.webp" source-width="600w;500w;400w;300w;200w" />
-                <ext-img src="/img/profile-photos/profile-photo-original.jpeg" source-width="600w;500w;400w;300w;200w" class="img-fluid rounded-1" alt="Tadeáš Burda" asp-append-version="true" />
+            <picture src="/img/profile-photos/profile-photo-original" format=".webp;.jpeg" sizes="639w;554w;549w;459w;339w;249w" media="xs:554px;sm:249px;md:339px;lg:459px;xl:549px;xxl:639px">
+                <img class="img-fluid rounded-1" src="/img/profile-photos/profile-photo-original.jpeg" alt="Tadeáš Burda" asp-append-version="true" />
             </picture>
         </div>
         <div class="col-sm">

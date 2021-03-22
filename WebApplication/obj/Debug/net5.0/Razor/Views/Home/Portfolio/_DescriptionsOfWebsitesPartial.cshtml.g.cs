@@ -77,6 +77,7 @@ using WebApplication.Models.ViewModels.ToolsController;
                 return __backed__tagHelperScopeManager;
             }
         }
+        private global::WebApplication.Models.TagHelpers.PictureTagHelper __WebApplication_Models_TagHelpers_PictureTagHelper;
         private global::WebApplication.Models.TagHelpers.ExtSourceTagHelper __WebApplication_Models_TagHelpers_ExtSourceTagHelper;
         private global::WebApplication.Models.TagHelpers.ExtImgTagHelper __WebApplication_Models_TagHelpers_ExtImgTagHelper;
         #pragma warning disable 1998
@@ -96,22 +97,51 @@ using WebApplication.Models.ViewModels.ToolsController;
                 <p>Propagačná stránka pre službu na zapožičiavanie párty stanov a techniky.</p>
                 <p>Web som navrhoval a programoval iba ja. Beží na .NET Blazor Server a pre front-end som použil FE Bootstrap. Kód je dostupný zo zvolením na GitHube.</p>
  ");
-            WriteLiteral(@"               <p class=""text-muted"">Poznámka: Je to starší projekt a nie je aktualizovaný. Blazor som vtedy iba skúšal, kód preto berte z rezervou. </p>
-            </article>
-        </div>
-        <div class=""col-md-5"">
-            <picture>
-                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a9834", async() => {
+            WriteLiteral("               <p class=\"text-muted\">Poznámka: Je to starší projekt a nie je aktualizovaný. Blazor som vtedy iba skúšal, kód preto berte z rezervou. </p>\r\n            </article>\r\n        </div>\r\n        <div class=\"col-md-5\">\r\n            ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("picture", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a9942", async() => {
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a10219", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_1.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a11715", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_3.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_5);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n            ");
             }
             );
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_1.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            __WebApplication_Models_TagHelpers_PictureTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.PictureTagHelper>();
+            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_PictureTagHelper);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -119,27 +149,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a11257", async() => {
-            }
-            );
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_3.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_3);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_5);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n            </picture>\r\n        </div>\r\n    </div>\r\n    <hr />\r\n");
+            WriteLiteral("\r\n        </div>\r\n    </div>\r\n    <hr />\r\n");
             WriteLiteral(@"    <div class=""row"">
         <div class=""col-md-7 order-md-2"">
             <h2 class=""text-center text-light bg-dark p-1"">OZ Rodan</h2>
@@ -157,18 +167,51 @@ using WebApplication.Models.ViewModels.ToolsController;
             </article>
         </div>
         <div class=""col-md-5 order-md-1"">
-            <picture>
-                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a14646", async() => {
+            ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("picture", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a15833", async() => {
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a16111", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_7.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_7);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a17607", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_8.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_8);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_9);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n            ");
             }
             );
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_7.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_7);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            __WebApplication_Models_TagHelpers_PictureTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.PictureTagHelper>();
+            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_PictureTagHelper);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -176,27 +219,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a16070", async() => {
-            }
-            );
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_8.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_8);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_9);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n            </picture>\r\n        </div>\r\n    </div>\r\n    <hr />\r\n");
+            WriteLiteral("\r\n        </div>\r\n    </div>\r\n    <hr />\r\n");
             WriteLiteral(@"    <div class=""row"">
         <div class=""col-md-7"">
             <h2 class="" text-center text-light bg-dark p-1"">ARTCORE</h2>
@@ -213,17 +236,51 @@ using WebApplication.Models.ViewModels.ToolsController;
                 <p>Back-end: Ako základ kódu som použil zakúpený tutoriál pre tvorbu eshopu + veľkú väčšinu kódu som dopísal ja, pretože kód tutoriálu bol koncipovaný všeobecne a nezhodoval sa z požiadavkami zákazky. Tutoriálový kód bol písaný v .NET Core 2.1, musel som ho teda previesť do .NET Core 5x a značná časť kódu sa tím stala nepoužiteľná. Odhadujem že povodneho kódu ostalo max 30%. </p>
                 <p>Web je plne dynamický a obsahuje adminské rozhranie, pre jeho správu a úpravu jeho obsahu. Na stránke je možné prihlásiť sa k automatizovanému newsletteru, platiť cez PayPal, generujú sa PDF faktúry, je možné objednať aj bez vytvorenia účtu a veľa ďalšieho. </p>
                 <p class=""text-muted"">Poznámka: Kód k projektu je privátny, ale mám zvolenie ho použ");
-            WriteLiteral("iť ako referenciu, takže ho môžem sprístupniť na vyžiadanie. </p>\r\n            </article>\r\n        </div>\r\n        <div class=\"col-md-5\">\r\n            <picture>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a20052", async() => {
+            WriteLiteral("iť ako referenciu, takže ho môžem sprístupniť na vyžiadanie. </p>\r\n            </article>\r\n        </div>\r\n        <div class=\"col-md-5\">\r\n            ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("picture", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a22316", async() => {
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-source", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a22594", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_10.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_10);
+                __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n                ");
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a24092", async() => {
+                }
+                );
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
+                __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_11.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_11);
+                __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
+                __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_12);
+                __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
+                await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+                if (!__tagHelperExecutionContext.Output.IsContentModified)
+                {
+                    await __tagHelperExecutionContext.SetOutputContentAsync();
+                }
+                Write(__tagHelperExecutionContext.Output);
+                __tagHelperExecutionContext = __tagHelperScopeManager.End();
+                WriteLiteral("\r\n            ");
             }
             );
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtSourceTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtSourceTagHelper);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.Source = (string)__tagHelperAttribute_10.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_10);
-            __WebApplication_Models_TagHelpers_ExtSourceTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
+            __WebApplication_Models_TagHelpers_PictureTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.PictureTagHelper>();
+            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_PictureTagHelper);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -231,27 +288,7 @@ using WebApplication.Models.ViewModels.ToolsController;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("ext-img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "547327ee0443bc63f5ad711bb8a9bcd758d5e28a21478", async() => {
-            }
-            );
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper = CreateTagHelper<global::WebApplication.Models.TagHelpers.ExtImgTagHelper>();
-            __tagHelperExecutionContext.Add(__WebApplication_Models_TagHelpers_ExtImgTagHelper);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.Src = (string)__tagHelperAttribute_11.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_11);
-            __WebApplication_Models_TagHelpers_ExtImgTagHelper.SourceWidth = (string)__tagHelperAttribute_2.Value;
-            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_2);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_4);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_12);
-            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_6);
-            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
-            if (!__tagHelperExecutionContext.Output.IsContentModified)
-            {
-                await __tagHelperExecutionContext.SetOutputContentAsync();
-            }
-            Write(__tagHelperExecutionContext.Output);
-            __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n            </picture>\r\n        </div>\r\n    </div>\r\n</section>\r\n");
+            WriteLiteral("\r\n        </div>\r\n    </div>\r\n</section>\r\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
