@@ -31,26 +31,24 @@ namespace WebApplication.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int statusCode)
         {
-            logger.LogError($"StatusCode: {statusCode}");
-
-            switch (statusCode)
+            return statusCode switch
             {
-                case 404:
-                    this.AddFlashMessage("Odkaz na ktorý ste klikli nikam nevedie, ale viedol na túto stránku... Možné príčiny: odkaz je starý, chybný, zablokovaný, atď. ", FlashMessageType.Info);
-                    break;
-                default:
-                    this.AddFlashMessage("Niečo sa pokazilo... Informáciu o chybe som zaregistroval a budem ju ďalej spracovať. Ďakujem za pochopenie ", FlashMessageType.Danger);
-                    break;
-            }
-
-            return RedirectToAction(nameof(Index));
+                404 => RedirectToAction("Index", "Home", new { flashMessage = "Odkaz na ktorý ste klikli nikam nevedie, ale viedol na túto stránku... Možné príčiny: odkaz je starý, chybný, zablokovaný, atď." }),
+                _ => RedirectToAction("Index", "Home", new { flashMessage = "Niečo sa pokazilo... Informáciu o chybe som zaregistroval a budem ju ďalej spracovať. Ďakujem za pochopenie." }),
+            };
         }
 
         [Route("/sitemap.xml"), HttpGet]
         public ActionResult GetSitemap() => new SitemapProvider().CreateSitemap(new SitemapModel(GetNodes()));
 
         [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
-        public IActionResult Index() => View();
+        public IActionResult Index(string flashMessage = null)
+        {
+            if (!string.IsNullOrEmpty(flashMessage))
+                this.AddFlashMessage(flashMessage, FlashMessageType.Info);
+
+            return View();
+        }
 
         [ResponseCache(Duration = 180, Location = ResponseCacheLocation.Any)]
         public IActionResult Portfolio() => View();
@@ -60,6 +58,7 @@ namespace WebApplication.Controllers
         {
             return View();
         }
+
         private List<SitemapImage> GetImagesNodes()
         {
             List<SitemapImage> list = new();
