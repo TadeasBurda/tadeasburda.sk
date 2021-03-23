@@ -1,16 +1,19 @@
-﻿<environment include="Development">
+﻿@{
+    ViewData["title"] = "Portfólio – Tadeáš Burda";
+    ViewData["description"] = "Na tejto stránke nájdeš všetky informácie o mojej práci ako programátora.";
+    ViewData["url"] = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}";
+    ViewData["og:type"] = "website";
+    ViewData["og:image"] = $"{Context.Request.Scheme}://{Context.Request.Host}/img/facebook-share.jpg";
+}
+
+<environment include="Development">
     <link type="text/css" rel="stylesheet" href="~/css/HomeController/Portfolio/site.css" asp-append-version="true" />
 </environment>
 <environment exclude="Development">
     <link type="text/css" rel="stylesheet" href="~/css/HomeController/Portfolio/site.min.css" asp-append-version="true" />
 </environment>
 
-@{
-    ViewData["title"] = "Moje webové portfólio";
-    ViewData["description"] = "Toto je moje webové portfólio, kde nájdeš všetko potrebné o mojej práci.";
-}
-
-<partial name="Portfolio/_TitlePhotosInCarouselPartial.cshtml"/>
+<partial name="Portfolio/_TitlePhotosInCarouselPartial.cshtml" />
 
 <partial name="Portfolio/_LinksToWebsitesPartial.cshtml" />
 

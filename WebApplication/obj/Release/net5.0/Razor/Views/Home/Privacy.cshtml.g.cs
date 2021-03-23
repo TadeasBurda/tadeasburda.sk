@@ -27,15 +27,8 @@ using WebApplication.Models;
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
-using WebApplication.Extensions;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 5 "C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\Views\_ViewImports.cshtml"
-using WebApplication.Classes;
+using WebApplication.Models.Extensions;
 
 #line default
 #line hidden
@@ -48,7 +41,7 @@ using WebApplication.Models.ViewModels.ToolsController;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0ab99781cf0a632686d4e5750edb43efaa1d2c1e", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70fde5361f1bf1a4deab84356008a5dd43b9c93f", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"14252da3dc268f573a11d493754f2f681ff98eb0", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

@@ -1,4 +1,9 @@
 ﻿@{
-    ViewData["title"] = "Privacy Policy";
+    ViewData["title"] = "Ochrana osobných údajov - GDPR";
+    ViewData["description"] = "Tu sú všetky informácie o spracovaní tvojich osobných údajov na tomto webe.";
+    ViewData["url"] = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}";
+    ViewData["og:type"] = "website";
+    ViewData["og:image"] = $"{Context.Request.Scheme}://{Context.Request.Host}/img/facebook-share.jpg";
 }
+
 <h1>@ViewData["title"]</h1>

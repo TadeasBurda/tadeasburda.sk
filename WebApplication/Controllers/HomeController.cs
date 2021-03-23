@@ -27,22 +27,20 @@ namespace WebApplication.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Route("/api/Error")]
-        public IActionResult Error(int? statusCode = null)
+        [Route("/api/Error/{statusCode:int}")]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error(int statusCode)
         {
-            if (statusCode.HasValue)
-            {
-                logger.LogError($"StatusCode: {statusCode.Value}");
+            logger.LogError($"StatusCode: {statusCode}");
 
-                switch (statusCode.Value)
-                {
-                    case 404:
-                        this.AddFlashMessage("Odkaz na ktorý ste klikli nikam nevedie, ale viedol na túto stránku... Možné príčiny: odkaz je starý, chybný, zablokovaný, atď. ", FlashMessageType.Info);
-                        break;
-                    default:
-                        this.AddFlashMessage("Niečo sa pokazilo... Informáciu o chybe som zaregistroval a budem ju ďalej spracovať. Ďakujem za pochopenie ", FlashMessageType.Danger);
-                        break;
-                }
+            switch (statusCode)
+            {
+                case 404:
+                    this.AddFlashMessage("Odkaz na ktorý ste klikli nikam nevedie, ale viedol na túto stránku... Možné príčiny: odkaz je starý, chybný, zablokovaný, atď. ", FlashMessageType.Info);
+                    break;
+                default:
+                    this.AddFlashMessage("Niečo sa pokazilo... Informáciu o chybe som zaregistroval a budem ju ďalej spracovať. Ďakujem za pochopenie ", FlashMessageType.Danger);
+                    break;
             }
 
             return RedirectToAction(nameof(Index));

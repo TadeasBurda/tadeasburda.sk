@@ -50,15 +50,24 @@ namespace WebApplication
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // Note: Allows cookies to be transferred only via HTTPS.
             });
 
-            #region DI for Services
             services.AddScoped<FileServices>();
             services.AddScoped<ImageServices>();
-            #endregion
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // must have first!!!
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                context.Response.Headers.Add("Content-Security-Policy", $"default-src 'unsafe-inline' {context.Request.Scheme + "://" + context.Request.Host} https://www.googletagmanager.com https://www.google-analytics.com/ https://fonts.googleapis.com/ https://fonts.gstatic.com data:");
+                context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
+                context.Response.Headers.Add("Permissions-Policy", "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()");
+                await next();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -66,7 +75,7 @@ namespace WebApplication
             }
             else
             {
-                app.UseStatusCodePagesWithReExecute("/api/Error", "?statusCode={0}");
+                app.UseStatusCodePagesWithReExecute("/api/Error/{0}");
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
@@ -78,16 +87,7 @@ namespace WebApplication
                     ctx.Context.Response.Headers.Append("Cache-Control", $"public, max-age=31536000, immutable");
                 }
             });
-
-            app.Use(async (context, next) =>
-            {
-                context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
-                context.Response.Headers.Add("Content-Security-Policy", $"default-src 'unsafe-inline' {context.Request.Scheme + "://" + context.Request.Host} https://www.googletagmanager.com https://www.google-analytics.com/ https://fonts.googleapis.com/ https://fonts.gstatic.com data:");
-                context.Response.Headers.Add("Referrer-Policy", "strict-origin-when-cross-origin");
-                context.Response.Headers.Add("Permissions-Policy", "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()");
-                await next();
-            });
-
+           
             app.UseCookiePolicy();
             app.UseRouting();
 

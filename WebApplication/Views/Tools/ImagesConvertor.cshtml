@@ -1,7 +1,11 @@
 ﻿@model ImagesConvertorViewModel
+
 @{
     ViewData["title"] = "Online konvertor obrázkov";
-    ViewData["description"] = "Stránka pre konvertovanie formátu, zmenu pomeru strán a orezanie obrázku.";
+    ViewData["description"] = "Stránka pre konvertovanie formátu obrázky a zmenu pomeru strán.";
+    ViewData["url"] = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}";
+    ViewData["og:type"] = "website";
+    ViewData["og:image"] = $"{Context.Request.Scheme}://{Context.Request.Host}/img/facebook-share.jpg";
 }
 
 <nav aria-label="breadcrumb">

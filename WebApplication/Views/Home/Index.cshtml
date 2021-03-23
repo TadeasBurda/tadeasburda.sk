@@ -1,6 +1,11 @@
 ﻿@{
     ViewData["title"] = "Vitajte na mojej webovej stránke";
+    ViewData["description"] = "Toto je úvodná stránka môjho osobného webu.";
+    ViewData["url"] = $"{Context.Request.Scheme}://{Context.Request.Host}{Context.Request.Path}";
+    ViewData["og:type"] = "website";
+    ViewData["og:image"] = $"{Context.Request.Scheme}://{Context.Request.Host}/img/facebook-share.jpg";
 }
+
 <div class="container">
     <div class="row">
         <div class="col-sm">
