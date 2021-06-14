@@ -186,3 +186,4 @@ C:\Users\tadea\Source\Repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_FlashMessagesPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_FooterPartial.cshtml.g.cs
 C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\Razor\Views\Shared\_Layout\_NavBarPartial.cshtml.g.cs
+C:\Users\tadea\source\repos\TadeasBurda\tadeasburda.sk\WebApplication\obj\Debug\net5.0\WebApplication.csproj.AssemblyReference.cache
